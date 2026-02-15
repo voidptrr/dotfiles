@@ -41,6 +41,11 @@
           default = {};
           description = "Registry of Home Manager modules.";
         };
+        flake.devModules = lib.mkOption {
+          type = lib.types.attrsOf lib.types.raw;
+          default = {};
+          description = "Registry of development modules.";
+        };
         flake.nixModules = lib.mkOption {
           type = lib.types.attrsOf lib.types.raw;
           default = {};

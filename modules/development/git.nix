@@ -1,5 +1,5 @@
 {lib, ...}: {
-  flake.homeManagerModules.git = {config, ...}: let
+  flake.devModules.git = {config, ...}: let
     cfg = config.programs.gitProfile;
   in {
     options.programs.gitProfile = {

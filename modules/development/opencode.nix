@@ -1,5 +1,5 @@
 {...}: {
-  flake.homeManagerModules.opencode = {...}: {
+  flake.devModules.opencode = {...}: {
     programs.opencode = {
       enable = true;
       settings = {
