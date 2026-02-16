@@ -1,23 +1,26 @@
 {pkgs, ...}: let
-  vantablack = pkgs.vimUtils.buildVimPlugin {
-    pname = "vantablack.nvim";
+  koda = pkgs.vimUtils.buildVimPlugin {
+    pname = "koda.nvim";
     version = "main";
     src = pkgs.fetchFromGitHub {
-      owner = "bjarneo";
-      repo = "vantablack.nvim";
+      owner = "oskarnurm";
+      repo = "koda.nvim";
       rev = "main";
-      sha256 = "sha256-rX3rIhV5wD9dsRj0J1KtYv2rpAFraN+wp6rdrLmp8dY=";
+      sha256 = "sha256-kErR1LB4K/RAFKcSUV/VnQajtGVFj+0rdvNn84hWpUY=";
     };
   };
 in {
-  extraPlugins = [vantablack];
+  extraPlugins = [koda];
   extraConfigLua = ''
-    require("vantablack").setup({
+    require("koda").setup({
       styles = {
-        comments = { italic = false },
+        functions = { bold = true, italic = false },
         keywords = { italic = false },
-      }
+        comments = { italic = false },
+        strings = { italic = false },
+        constants = { italic = false },
+      },
     })
-    vim.cmd.colorscheme("vantablack")
+    vim.cmd.colorscheme("koda")
   '';
 }
