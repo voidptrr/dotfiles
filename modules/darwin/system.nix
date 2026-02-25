@@ -8,6 +8,7 @@
     environment = {
       shells = [pkgs.zsh];
       pathsToLink = ["/share/zsh"];
+      systemPackages = with pkgs; [man-pages-posix];
     };
 
     users.users.${username} = {
