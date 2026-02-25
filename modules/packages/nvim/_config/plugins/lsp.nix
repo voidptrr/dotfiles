@@ -33,6 +33,16 @@
           schemaStore.enable = true;
           validate = true;
           format.enable = true;
+          yaml = {
+            schemas = {
+              kubernetes = "*.yaml";
+              "http://json.schemastore.org/github-workflow" = ".github/workflows/*";
+              "http://json.schemastore.org/github-action" = ".github/action.{yml,yaml}";
+              "http://json.schemastore.org/kustomization" = "kustomization.{yml,yaml}";
+              "http://json.schemastore.org/chart" = "Chart.{yml,yaml}";
+              "https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json" = "*docker-compose*.{yml,yaml}";
+            };
+          };
         };
       };
 
@@ -47,4 +57,13 @@
       ts_ls = externalServer;
     };
   };
+
+  keymaps = [
+    {
+      mode = "n";
+      key = "<leader>d";
+      action = "<cmd>lua vim.diagnostic.setqflist(); vim.cmd('copen')<cr>";
+      options.desc = "Diagnostics quickfix";
+    }
+  ];
 }

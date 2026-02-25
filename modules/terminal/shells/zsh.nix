@@ -9,6 +9,7 @@
       enableCompletion = true;
       shellAliases = {
         ls = "ls -al";
+        nd = "nix develop -c zsh";
         rebuild =
           if pkgs.stdenv.hostPlatform.isDarwin
           then "sudo darwin-rebuild switch"

@@ -14,10 +14,8 @@
         font-thicken-strength = 100;
         font-family = "Source Code Pro";
 
-        theme = "Everforest Dark Hard";
-
-        window-width = 144;
-        window-height = 43;
+        theme = "Gruvbox Dark";
+        maximize = true;
       };
     };
   };

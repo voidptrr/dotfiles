@@ -1,9 +1,13 @@
 {
-  colorschemes.everforest = {
+  colorscheme = "gruvbox";
+
+  colorschemes.gruvbox = {
     enable = true;
     settings = {
-      background = "hard";
-      transparent_background = 1;
+      italic = {
+        strings = false;
+      };
+      invert_selection = false;
     };
   };
 }
