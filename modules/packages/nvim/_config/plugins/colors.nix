@@ -8,6 +8,11 @@
         strings = false;
       };
       invert_selection = false;
+      overrides = {
+        SignColumn = {
+          bg = "NONE";
+        };
+      };
     };
   };
 }

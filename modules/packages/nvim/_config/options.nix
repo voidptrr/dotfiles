@@ -23,8 +23,8 @@
     background = "dark";
     termguicolors = true;
     number = true;
-    relativenumber = true;
-    signcolumn = "yes";
+    cursorline = true;
+    numberwidth = 1;
 
     splitbelow = true;
     splitright = true;
