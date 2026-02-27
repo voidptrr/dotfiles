@@ -1,15 +1,58 @@
-# 🧩 systems
+# dotfiles
 
-> Centralized configuration for all my machines using **Nix**, **nix-darwin**, and **Home Manager**.
+Declarative system and user configuration using Nix flakes, nix-darwin, and Home Manager.
 
-This repository defines my complete system and user environment in a **declarative**, **reproducible**, and **cross-platform** way.  
-It currently manages my **macOS (Darwin)** setup and is designed to easily extend to other hosts and platforms in the future.
+![Terminal setup](assets/terminal-image.png)
 
----
+## What this repo manages
 
-## 🧠 Overview
+- macOS system config (`nix-darwin`) via `darwinConfigurations.personal`
+- User programs and dotfiles (`home-manager`) via `homeManagerModules`
+- Custom Neovim package (`packages.nvim`) built with `nixvim`
 
-- **nix-darwin** — Configures system-level options on macOS (services, preferences, etc.).
-- **home-manager** — Manages user-level configuration and dotfiles in a declarative way.
-- **flake-based** — All configurations are managed via a single Nix flake for consistency and portability.
+## Current module layout
 
+- `modules/darwin/` -> `flake.darwinModules.*`
+- `modules/hosts/<host>/` -> host composition + `flake.darwinConfigurations.*`
+- `modules/programs/<category>/` -> `flake.homeManagerModules.*`
+  - `modules/programs/terminal/` (ghostty, tmux, zsh)
+  - `modules/programs/internet/` (firefox)
+  - `modules/programs/` (shared HM modules like git, opencode)
+- `modules/nix/` -> `flake.nixModules.*`
+- `modules/packages/` -> package definitions (`perSystem.packages.*`)
+
+## Key outputs
+
+- `darwinConfigurations.personal`
+- `homeManagerModules.*` (all user modules, including git/opencode/nvim)
+- `packages.<system>.nvim`
+
+## Bootstrap
+
+Use the setup script:
+
+```bash
+./setup.sh
+```
+
+`setup.sh` will:
+
+- install Determinate Nix (if `nix` is missing)
+- set hostname to `personal`
+  - macOS: `scutil --set HostName/LocalHostName/ComputerName`
+  - Linux: `hostnamectl set-hostname` (if available)
+- run system switch for `#personal`
+
+## Manual rebuild
+
+```bash
+sudo darwin-rebuild switch --flake ~/git/dotfiles#personal
+```
+
+## Formatting
+
+After any `.nix` change, run:
+
+```bash
+nix fmt .
+```
