@@ -29,9 +29,16 @@
         }
       ];
       extraConfig = ''
+        set-hook -g after-new-session 'if-shell -F "#{==:#{window_panes},1}" "split-window -h -c \"#{pane_current_path}\"; select-pane -L; resize-pane -R 15"'
+
         bind '"' split-window -c "#{pane_current_path}"
         bind '%' split-window -c "#{pane_current_path}" -h
         bind 'c' new-window -c "#{pane_current_path}"
+
+        bind w switch-client -T window-nav
+        bind -T window-nav h select-pane -L \; switch-client -T prefix
+        bind -T window-nav l select-pane -R \; switch-client -T prefix
+        bind -T window-nav Escape switch-client -T prefix
 
         bind -r h resize-pane -L 5
         bind -r j resize-pane -D 5
