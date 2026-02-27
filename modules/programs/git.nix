@@ -1,5 +1,5 @@
 {lib, ...}: {
-  flake.devModules.git = {
+  flake.homeManagerModules.git = {
     config,
     pkgs,
     ...

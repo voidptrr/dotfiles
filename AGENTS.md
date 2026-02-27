@@ -6,7 +6,6 @@ The repository follows the dendritic pattern: every file under `modules/` is a s
 - `modules/darwin/`: nix-darwin modules registered as `flake.darwinModules.*`.
 - `modules/hosts/<host>/`: host composition files (for example `base.nix` and `config.nix`) that register host-specific `flake.darwinModules.*` and `flake.darwinConfigurations.*`.
 - `modules/programs/<category>/` (for example `modules/programs/terminal/` and `modules/programs/internet/`): Home-Manager modules registered as `flake.homeManagerModules.*`.
-- `modules/development/`: shared dev modules registered as `flake.devModules.*`.
 - `modules/nix/`: shared Nix modules registered as `flake.nixModules.*`.
 - `modules/packages/`: package definitions (for example `perSystem.packages.nvim`) and their internal config trees.
 
@@ -54,18 +53,17 @@ Home-Manager programs in this repo live under `modules/programs/<category>/` (fo
 - Use `config` for HM helpers (e.g., `config.lib.file.mkOutOfStoreSymlink`).
 - Avoid side effects or `pkgs.callPackage` at the top level; keep everything inside the returned attrset.
 
-## Creating a dev module
-Dev modules live under `modules/development/` and register under `flake.devModules`.
+## Creating a shared Home-Manager module
+Shared modules (including development tooling) should also register under `flake.homeManagerModules` and live under `modules/programs/<category>/`.
 
 **Template**
 ```nix
-# modules/development/<name>.nix
+# modules/programs/development/<name>.nix
 { ... }: {
-  flake.devModules.<name> = {
+  flake.homeManagerModules.<name> = {
     pkgs,
     ...
   }: {
-    # Shared Home-Manager config for development tooling
     home.packages = [ pkgs.git ];
   };
 }
@@ -111,8 +109,7 @@ Hosts live under `modules/hosts/<host>/` and usually split responsibilities acro
   ];
 
   homeModules =
-    builtins.attrValues self.homeManagerModules
-    ++ builtins.attrValues self.devModules;
+    builtins.attrValues self.homeManagerModules;
 in {
   flake.darwinConfigurations.<name> = inputs.nix-darwin.lib.darwinSystem {
     inherit system;
@@ -130,11 +127,11 @@ in {
 }
 ```
 - Compose host stacks from registries instead of importing modules directly.
-- Include both `self.homeManagerModules` and `self.devModules` in `homeManagerModules` when you want shared dev tooling applied to the user profile.
+- Keep all Home-Manager modules (including development tooling) in `self.homeManagerModules`.
 
 ## Checklist
 - Place darwin-related files under `modules/darwin/` and register them via `flake.darwinModules.<name>`.
 - Place HM files under `modules/programs/<category>/` and register them via `flake.homeManagerModules.<name>`.
-- Place shared development modules under `modules/development/` and register them via `flake.devModules.<name>`.
 - Place shared nix modules under `modules/nix/` and register them via `flake.nixModules.<name>`.
 - Define hosts under `modules/hosts/<host>/` and expose `flake.darwinConfigurations.<host>` from the host base file.
+- After changing any `.nix` file, run `nix fmt .` before finishing.

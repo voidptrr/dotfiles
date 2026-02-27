@@ -15,9 +15,7 @@
     self.nixModules.base
   ];
 
-  homeModules =
-    builtins.attrValues self.homeManagerModules
-    ++ builtins.attrValues self.devModules;
+  homeModules = builtins.attrValues self.homeManagerModules;
 in {
   flake.darwinConfigurations.personal = inputs.nix-darwin.lib.darwinSystem {
     inherit system;
