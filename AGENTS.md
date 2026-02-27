@@ -5,7 +5,7 @@ The repository follows the dendritic pattern: every file under `modules/` is a s
 ## Current module layout
 - `modules/darwin/`: nix-darwin modules registered as `flake.darwinModules.*`.
 - `modules/hosts/<host>/`: host composition files (for example `base.nix` and `config.nix`) that register host-specific `flake.darwinModules.*` and `flake.darwinConfigurations.*`.
-- `modules/terminal/`, `modules/internet/`: Home-Manager modules registered as `flake.homeManagerModules.*`.
+- `modules/programs/<category>/` (for example `modules/programs/terminal/` and `modules/programs/internet/`): Home-Manager modules registered as `flake.homeManagerModules.*`.
 - `modules/development/`: shared dev modules registered as `flake.devModules.*`.
 - `modules/nix/`: shared Nix modules registered as `flake.nixModules.*`.
 - `modules/packages/`: package definitions (for example `perSystem.packages.nvim`) and their internal config trees.
@@ -32,11 +32,11 @@ The repository follows the dendritic pattern: every file under `modules/` is a s
 - Keep each module focused. Multiple related modules are fine—just give each a unique registry key.
 
 ## Creating a Home-Manager module
-Home-Manager programs in this repo typically live under `modules/terminal/` or `modules/internet/`. They register under `flake.homeManagerModules` and are threaded into hosts via `homeManagerModules` special args.
+Home-Manager programs in this repo live under `modules/programs/<category>/` (for example `modules/programs/terminal/` or `modules/programs/internet/`). They register under `flake.homeManagerModules` and are threaded into hosts via `homeManagerModules` special args.
 
 **Template**
 ```nix
-# modules/terminal/<tool>.nix
+# modules/programs/terminal/<tool>.nix
 { ... }: {
   flake.homeManagerModules.<tool> = {
     pkgs,
@@ -134,7 +134,7 @@ in {
 
 ## Checklist
 - Place darwin-related files under `modules/darwin/` and register them via `flake.darwinModules.<name>`.
-- Place HM files under `modules/terminal/` or `modules/internet/` and register them via `flake.homeManagerModules.<name>`.
+- Place HM files under `modules/programs/<category>/` and register them via `flake.homeManagerModules.<name>`.
 - Place shared development modules under `modules/development/` and register them via `flake.devModules.<name>`.
 - Place shared nix modules under `modules/nix/` and register them via `flake.nixModules.<name>`.
 - Define hosts under `modules/hosts/<host>/` and expose `flake.darwinConfigurations.<host>` from the host base file.
