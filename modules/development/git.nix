@@ -1,5 +1,9 @@
 {lib, ...}: {
-  flake.devModules.git = {config, ...}: let
+  flake.devModules.git = {
+    config,
+    pkgs,
+    ...
+  }: let
     cfg = config.programs.gitProfile;
   in {
     options.programs.gitProfile = {
@@ -32,16 +36,19 @@
           format = "ssh";
         };
 
-        settings = {
-          user = {
-            name = cfg.name;
-            email = cfg.email;
+        settings =
+          {
+            user = {
+              name = cfg.name;
+              email = cfg.email;
+            };
+            push.autoSetupRemote = true;
+            init.defaultBranch = "main";
+            pull.rebase = true;
+          }
+          // lib.optionalAttrs pkgs.stdenv.hostPlatform.isDarwin {
+            safe.directory = "/etc/nix-darwin";
           };
-          push.autoSetupRemote = true;
-          init.defaultBranch = "main";
-          pull.rebase = true;
-          safe.directory = "/etc/nix-darwin";
-        };
       };
     };
   };
