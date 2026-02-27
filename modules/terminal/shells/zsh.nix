@@ -17,7 +17,7 @@
         nd = "nix develop -c zsh";
         rebuild =
           if pkgs.stdenv.hostPlatform.isDarwin
-          then "sudo darwin-rebuild switch"
+          then "sudo darwin-rebuild switch --flake ~/git/dotfiles#personal"
           else "sudo nixos-rebuild switch";
       };
 
