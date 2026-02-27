@@ -138,4 +138,3 @@ in {
 - Place shared development modules under `modules/development/` and register them via `flake.devModules.<name>`.
 - Place shared nix modules under `modules/nix/` and register them via `flake.nixModules.<name>`.
 - Define hosts under `modules/hosts/<host>/` and expose `flake.darwinConfigurations.<host>` from the host base file.
-- After adding/renaming modules, run `nix build .#darwinConfigurations.<host>.system` (or your `rebuild` alias) to ensure everything evaluates.

@@ -12,6 +12,7 @@
         "<leader>ld" = "definition";
         "<leader>li" = "implementation";
         "<leader>lr" = "rename";
+        "<leader>lc" = "code_action";
       };
     };
     servers = {
@@ -64,6 +65,18 @@
       key = "<leader>d";
       action = "<cmd>lua vim.diagnostic.setqflist(); vim.cmd('copen')<cr>";
       options.desc = "Diagnostics quickfix";
+    }
+    {
+      mode = "n";
+      key = "<leader>wj";
+      action = "<cmd>wincmd j<cr>";
+      options.desc = "Focus window below";
+    }
+    {
+      mode = "n";
+      key = "<leader>wk";
+      action = "<cmd>wincmd k<cr>";
+      options.desc = "Focus window above";
     }
   ];
 }

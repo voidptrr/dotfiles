@@ -7,19 +7,17 @@
         KakaoTalk = 869223134;
       };
     };
-    dockConfig.persistentApps = [
-      {app = "/System/Applications/Music.app";}
-      {app = "/Applications/Kakaotalk.app";}
-      {app = "/Applications/Firefox.app";}
-      {
-        app = "${
-          (
-            if pkgs.stdenv.hostPlatform.isDarwin
-            then pkgs.ghostty-bin
-            else pkgs.ghostty
-          )
-        }/Applications/Ghostty.app";
-      }
+    dockConfig.persistentApps = map (app: {inherit app;}) [
+      "/System/Applications/Music.app"
+      "/Applications/Kakaotalk.app"
+      "/Applications/Firefox.app"
+      "${
+        (
+          if pkgs.stdenv.hostPlatform.isDarwin
+          then pkgs.ghostty-bin
+          else pkgs.ghostty
+        )
+      }/Applications/Ghostty.app"
     ];
     home-manager.sharedModules = [
       {
