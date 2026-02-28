@@ -1,7 +1,6 @@
 {lib, ...}: {
   flake.homeManagerModules.git = {
     config,
-    pkgs,
     ...
   }: let
     cfg = config.programs.gitProfile;
@@ -36,19 +35,15 @@
           format = "ssh";
         };
 
-        settings =
-          {
-            user = {
-              name = cfg.name;
-              email = cfg.email;
-            };
-            push.autoSetupRemote = true;
-            init.defaultBranch = "main";
-            pull.rebase = true;
-          }
-          // lib.optionalAttrs pkgs.stdenv.hostPlatform.isDarwin {
-            safe.directory = "/etc/nix-darwin";
+        settings = {
+          user = {
+            name = cfg.name;
+            email = cfg.email;
           };
+          push.autoSetupRemote = true;
+          init.defaultBranch = "main";
+          pull.rebase = true;
+        };
       };
     };
   };
