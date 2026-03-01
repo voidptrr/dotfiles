@@ -1,5 +1,9 @@
 {...}: {
-  flake.homeManagerModules.ghostty = {pkgs, ...}: {
+  flake.homeManagerModules.ghostty = {
+    lib,
+    pkgs,
+    ...
+  }: {
     programs.ghostty = {
       enable = true;
       package =
@@ -8,15 +12,22 @@
         else pkgs.ghostty-bin;
 
       enableZshIntegration = true;
-      settings = {
-        font-size = 15;
-        font-thicken = true;
-        font-thicken-strength = 100;
-        font-family = "Source Code Pro";
+      settings =
+        {
+          font-size = 15;
+          font-thicken = true;
+          font-thicken-strength = 100;
+          font-family = "Source Code Pro";
 
-        theme = "Gruvbox Dark";
-        maximize = true;
-      };
+          theme = "Gruvbox Dark";
+          maximize = true;
+        }
+        // lib.optionalAttrs pkgs.stdenv.hostPlatform.isLinux {
+          window-decoration = "none";
+        }
+        // lib.optionalAttrs pkgs.stdenv.hostPlatform.isDarwin {
+          macos-titlebar-style = "hidden";
+        };
     };
   };
 }
