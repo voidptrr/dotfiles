@@ -17,14 +17,14 @@ Declarative system and user configuration using Nix flakes, nix-darwin, and Home
 - `modules/programs/<category>/` -> `flake.homeManagerModules.*`
   - `modules/programs/terminal/` (ghostty, tmux, zsh)
   - `modules/programs/internet/` (firefox)
-  - `modules/programs/` (shared HM modules like git, opencode)
+  - `modules/programs/` (shared HM modules like git and opencode)
 - `modules/nix/` -> `flake.nixModules.*`
 - `modules/packages/` -> package definitions (`perSystem.packages.*`)
 
 ## Key outputs
 
 - `darwinConfigurations.personal`
-- `homeManagerModules.*` (all user modules, including git/opencode/nvim)
+- `homeManagerModules.*` (all user-facing HM modules)
 - `packages.<system>.nvim`
 
 ## Bootstrap

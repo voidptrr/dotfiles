@@ -1,6 +1,4 @@
 {
-  colorscheme = "gruvbox";
-
   colorschemes.gruvbox = {
     enable = true;
     settings = {
@@ -8,11 +6,6 @@
         strings = false;
       };
       invert_selection = false;
-      overrides = {
-        SignColumn = {
-          bg = "NONE";
-        };
-      };
     };
   };
 }

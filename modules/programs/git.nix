@@ -14,11 +14,11 @@
     config = {
       assertions = [
         {
-          assertion = cfg.name != null && cfg.name != "";
+          assertion = cfg.name != "";
           message = "programs.gitProfile.name must be set.";
         }
         {
-          assertion = cfg.email != null && cfg.email != "";
+          assertion = cfg.email != "";
           message = "programs.gitProfile.email must be set.";
         }
       ];

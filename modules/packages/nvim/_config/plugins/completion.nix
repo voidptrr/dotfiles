@@ -32,7 +32,8 @@
           require('lspkind').cmp_format({
             with_text = true,
             menu = {
-              nvim_lsp = '[LSP]', path = '[path]',
+              nvim_lsp = '[LSP]',
+              path = '[path]',
               buffer = '[buf]'
             }
           })

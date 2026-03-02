@@ -24,14 +24,11 @@
       "browser.newtabpage.enhanced" = false;
       "browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts" = false;
 
-      "browser.newtabpage.activity-stream.section.highlights.includePocket" = false;
-
       "browser.selfsupport.url" = "";
       "extensions.webservice.discoverURL" = "";
       "browser.urlbar.groupLabels.enabled" = false;
       "browser.urlbar.quicksuggest.enabled" = false;
       "browser.newtabpage.activity-stream.feeds.recommendationprovider" = false;
-      "extensions.htmlaboutaddons.recommendations.enabled" = false;
     };
   };
 }
