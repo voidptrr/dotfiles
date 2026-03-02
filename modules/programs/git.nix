@@ -28,7 +28,7 @@
 
         signing = {
           signByDefault = true;
-          key = "~/.ssh/id_ed25519.pub";
+          key = config.sops.secrets.git-signing-key.path;
           format = "ssh";
         };
 
