@@ -12,6 +12,11 @@
     };
 
     config = {
+      sops.secrets.git-signing-key = {
+        path = "${config.home.homeDirectory}/.ssh/git_signing_ed25519";
+        mode = "0400";
+      };
+
       assertions = [
         {
           assertion = cfg.name != "";

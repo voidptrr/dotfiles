@@ -17,8 +17,7 @@ Declarative system and user configuration using Nix flakes, nix-darwin, and Home
 - `modules/programs/<category>/` -> `flake.homeManagerModules.*`
   - `modules/programs/terminal/` (ghostty, tmux, zsh)
   - `modules/programs/internet/` (firefox)
-  - `modules/programs/security/` (sops-nix)
-  - `modules/programs/` (shared HM modules like git and opencode)
+  - `modules/programs/` (shared HM modules like git, opencode, sops)
 - `modules/nix/` -> `flake.nixModules.*`
 - `modules/packages/` -> package definitions (`perSystem.packages.*`)
 
@@ -52,11 +51,10 @@ sudo darwin-rebuild switch --flake ~/git/dotfiles#personal
 
 ## Secrets (Home Manager + sops-nix)
 
-- `sops-nix` is wired through `homeManagerModules.sops` for cross-platform secret handling.
-- It is loaded as a shared Home Manager module (no per-host enable flag required).
+- `sops-nix` base config is in `homeManagerModules.sops`.
 - The default encrypted file path is `secrets/secrets.yaml`.
 - The default age key file is `~/sops/age/keys.txt`.
-- Git signing reads `sops.secrets.git-signing-key.path` when available.
+- Git signing secret wiring lives in `homeManagerModules.git` and uses `sops.secrets.git-signing-key.path`.
 - `nix develop` includes `sops`/`age` and exports `SOPS_AGE_KEY_FILE=~/sops/age/keys.txt`.
 
 ## Formatting
