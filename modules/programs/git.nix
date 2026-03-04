@@ -4,10 +4,10 @@
   in {
     options.programs.gitProfile = {
       name = lib.mkOption {
-        type = lib.types.str;
+        type = lib.types.nonEmptyStr;
       };
       email = lib.mkOption {
-        type = lib.types.str;
+        type = lib.types.nonEmptyStr;
       };
     };
 
@@ -16,17 +16,6 @@
         path = "${config.home.homeDirectory}/.ssh/git_signing_ed25519";
         mode = "0400";
       };
-
-      assertions = [
-        {
-          assertion = cfg.name != "";
-          message = "programs.gitProfile.name must be set.";
-        }
-        {
-          assertion = cfg.email != "";
-          message = "programs.gitProfile.email must be set.";
-        }
-      ];
 
       programs.git = {
         enable = true;
