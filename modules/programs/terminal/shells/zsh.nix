@@ -1,25 +1,20 @@
 {...}: {
   flake.homeManagerModules.zsh = {
-    pkgs,
     lib,
+    config,
     ...
-  }: {
+  }: let
+    cfg = config.programs.shellProfile;
+  in {
     programs.zsh = {
       enable = true;
       enableCompletion = true;
-      sessionVariables = {
-        EDITOR = "nvim";
-        BROWSER = "firefox";
-        TERMINAL = "ghostty";
-      };
-      shellAliases = {
-        ls = "ls -al";
-        nd = "nix develop -c zsh";
-        rebuild =
-          if pkgs.stdenv.hostPlatform.isDarwin
-          then "sudo darwin-rebuild switch --flake ~/git/dotfiles#personal"
-          else "sudo nixos-rebuild switch";
-      };
+      sessionVariables = cfg.environmentVariables;
+      shellAliases =
+        cfg.shellAliases
+        // {
+          nd = "nix develop -c zsh";
+        };
 
       initContent = lib.mkOrder 500 ''
         autoload -Uz vcs_info

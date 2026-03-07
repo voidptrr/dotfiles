@@ -21,9 +21,11 @@
     ];
     home-manager.sharedModules = [
       {
-        programs.gitProfile = {
-          name = "voidptrr";
-          email = "bruno.tommaso@protonmail.com";
+        programs = {
+          gitProfile = {
+            name = "voidptrr";
+            email = "bruno.tommaso@protonmail.com";
+          };
         };
       }
     ];
