@@ -67,11 +67,9 @@
           };
           checks = {
             fmt = pkgs.runCommand "fmt-check" {} ''
-              ${pkgs.nushell}/bin/nu ${./scripts/check-nu.nu} \
+              ${pkgs.nushell}/bin/nu ${./scripts/flake-checks.nu} \
                 --repo-root ${./.} \
-                --alejandra-bin ${pkgs.alejandra}/bin/alejandra \
-                --nufmt-bin ${pkgs.nufmt}/bin/nufmt \
-                --nufmt-config ${./nufmt.nuon}
+                --alejandra-bin ${pkgs.alejandra}/bin/alejandra
               touch $out
             '';
           };
