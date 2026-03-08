@@ -5,16 +5,23 @@
     ...
   }: {
     programs.zsh.enable = true;
+
     environment = {
-      shells = [pkgs.zsh];
+      shells = with pkgs; [
+        zsh
+        nushell
+      ];
       pathsToLink = ["/share/zsh"];
       systemPackages = with pkgs; [man-pages-posix];
     };
 
+    users.knownUsers = [username];
     users.users.${username} = {
       name = username;
+      uid = 501;
+      gid = 20;
       home = "/Users/${username}";
-      shell = pkgs.zsh;
+      shell = pkgs.nushell;
     };
 
     fonts.packages = with pkgs; [source-code-pro];

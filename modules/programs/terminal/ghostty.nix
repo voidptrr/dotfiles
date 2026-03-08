@@ -11,7 +11,6 @@
         then pkgs.ghostty
         else pkgs.ghostty-bin;
 
-      enableZshIntegration = true;
       settings =
         {
           font-size = 15;

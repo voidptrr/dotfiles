@@ -9,7 +9,7 @@
       mouse = true;
       keyMode = "vi";
       escapeTime = 0;
-      shell = "${pkgs.zsh}/bin/zsh";
+      shell = "${pkgs.nushell}/bin/nu";
       plugins = [
         {
           plugin = pkgs.tmuxPlugins.prefix-highlight;
@@ -25,6 +25,8 @@
         }
       ];
       extraConfig = ''
+        set -g default-command "${pkgs.nushell}/bin/nu"
+
         set -g status-style 'fg=#d3c6aa,bg=#272e33'
         set -g message-style 'fg=#d3c6aa,bg=#374145'
         set -g pane-border-style 'fg=#414b50'
