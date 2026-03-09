@@ -15,7 +15,7 @@
         set -g pane-base-index 1
 
         set -g status-style 'fg=#d3c6aa,bg=#272e33'
-        set -g status-justify left 
+        set -g status-justify left
         set -g message-style 'fg=#d3c6aa,bg=#374145'
         set -g pane-border-style 'fg=#414b50'
         set -g pane-active-border-style 'fg=#83c092'
