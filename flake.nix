@@ -66,10 +66,10 @@
             '';
           };
           checks = {
-            fmt = pkgs.runCommand "fmt-check" {} ''
-              ${pkgs.nushell}/bin/nu ${./scripts/flake-checks.nu} \
-                --repo-root ${./.} \
-                --alejandra-bin ${pkgs.alejandra}/bin/alejandra
+            checks = pkgs.runCommand "checks" {} ''
+              cd ${./.}
+              ${pkgs.alejandra}/bin/alejandra --check .
+              ${pkgs.shellcheck}/bin/shellcheck setup.sh
               touch $out
             '';
           };

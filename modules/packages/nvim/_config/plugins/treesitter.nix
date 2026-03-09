@@ -7,7 +7,7 @@
       nix
       yaml
 
-      # Shell scripting 
+      # Shell scripting
       bash
       nu
 
@@ -16,7 +16,7 @@
       rust
       zig
 
-      # Web scripting 
+      # Web scripting
       typescript
     ];
   };
