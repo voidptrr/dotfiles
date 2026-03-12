@@ -2,17 +2,19 @@
   flake.darwinModules.quantum = {pkgs, ...}: let
     ghosttyBin = "${self.packages.${pkgs.stdenv.hostPlatform.system}.ghostty}/bin/ghostty";
   in {
-    environment.systemPackages = [
-      self.packages.${pkgs.stdenv.hostPlatform.system}.ghostty
-      self.packages.${pkgs.stdenv.hostPlatform.system}.zsh-wrapped
-      self.packages.${pkgs.stdenv.hostPlatform.system}.tmux
-      self.packages.${pkgs.stdenv.hostPlatform.system}.nvim
+    environment.systemPackages = with self.packages.${pkgs.stdenv.hostPlatform.system}; [
+      ghostty
+      zsh-wrapped
+      tmux
+      nvim
+      ptx
     ];
 
     services.skhd = {
       enable = true;
       skhdConfig = ''
         cmd - g : ${ghosttyBin}
+        cmd - f : firefox
       '';
     };
 

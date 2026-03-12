@@ -1,0 +1,3 @@
+export EDITOR="nvim"
+export BROWSER="firefox"
+export TERMINAL="ghostty"

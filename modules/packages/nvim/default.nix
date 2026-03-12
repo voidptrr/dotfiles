@@ -1,7 +1,4 @@
-{
-  inputs,
-  ...
-}: {
+{inputs, ...}: {
   perSystem = {system, ...}: {
     packages.nvim = let
       nixvim' = inputs.nixvim.legacyPackages.${system};
