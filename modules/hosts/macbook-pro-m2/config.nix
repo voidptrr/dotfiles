@@ -1,5 +1,9 @@
 {self, ...}: {
-  flake.hostModules.macbook-pro-m2 = {pkgs, config, ...}: let
+  registry.hostModules.macbook-pro-m2 = {
+    pkgs,
+    config,
+    ...
+  }: let
     ghosttyBin = "${self.packages.${pkgs.stdenv.hostPlatform.system}.ghostty}/bin/ghostty";
   in {
     imports = [self.hostModules.macbook-pro-m2-secrets];
@@ -17,7 +21,7 @@
       git = {
         name = "voidptrr";
         email = "bruno.tommaso@protonmail.com";
-        signingKeyPath = config.sops.secrets.git-signing-key.path; 
+        signingKeyPath = config.sops.secrets.git-signing-key.path;
       };
     };
 

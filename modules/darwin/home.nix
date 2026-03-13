@@ -1,5 +1,5 @@
 {...}: {
-  flake.darwinModules.home-manager-entry = {
+  registry.darwinModules.home-manager-entry = {
     username,
     homeManagerModules ? [],
     ...

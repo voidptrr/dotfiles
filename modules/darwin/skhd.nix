@@ -1,5 +1,5 @@
 {lib, ...}: {
-  flake.darwinModules.skhd = {config, ...}: let
+  registry.darwinModules.skhd = {config, ...}: let
     cfg = config.darwin.skhd;
   in {
     options.darwin.skhd = {

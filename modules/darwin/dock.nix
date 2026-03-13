@@ -1,5 +1,5 @@
 {lib, ...}: {
-  flake.darwinModules.dock = {config, ...}: let
+  registry.darwinModules.dock = {config, ...}: let
     cfg = config.darwin.dock;
   in {
     options.darwin.dock.persistentApps = lib.mkOption {

@@ -1,5 +1,5 @@
 {...}: {
-  flake.homeManagerModules.opencode = {...}: {
+  registry.homeManagerModules.opencode = {...}: {
     programs.opencode = {
       enable = true;
       settings = {

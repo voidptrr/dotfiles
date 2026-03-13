@@ -1,5 +1,5 @@
 {...}: {
-  flake.nixModules.git = {
+  registry.nixModules.git = {
     config,
     lib,
     pkgs,

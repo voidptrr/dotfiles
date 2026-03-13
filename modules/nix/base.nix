@@ -1,5 +1,5 @@
 {lib, ...}: {
-  flake.nixModules.base = {pkgs, ...}: {
+  registry.nixModules.base = {pkgs, ...}: {
     nix =
       {
         enable = pkgs.stdenv.hostPlatform.isLinux;

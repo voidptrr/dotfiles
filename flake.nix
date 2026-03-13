@@ -24,60 +24,33 @@
     firefox-addons.url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
   };
 
-  outputs = {...} @ inputs: let
-    lib = inputs.nixpkgs.lib;
-  in
+  outputs = {...} @ inputs:
     inputs.flake-parts.lib.mkFlake {inherit inputs;}
     {
       imports = [
         (inputs.import-tree ./modules)
       ];
 
-      options = {
-        flake.darwinModules = lib.mkOption {
-          type = lib.types.attrsOf lib.types.raw;
-          default = {};
-          description = "Registry of nix-darwin modules.";
-        };
-        flake.homeManagerModules = lib.mkOption {
-          type = lib.types.attrsOf lib.types.raw;
-          default = {};
-          description = "Registry of Home Manager modules.";
-        };
-        flake.nixModules = lib.mkOption {
-          type = lib.types.attrsOf lib.types.raw;
-          default = {};
-          description = "Registry of shared Nix modules.";
-        };
-        flake.hostModules = lib.mkOption {
-          type = lib.types.attrsOf lib.types.raw;
-          default = {};
-          description = "Registry of host-specific modules.";
-        };
-      };
+      systems = ["aarch64-darwin"];
+      perSystem = {pkgs, ...}: {
+        formatter = pkgs.alejandra;
+        devShells.default = pkgs.mkShell {
+          packages = with pkgs; [
+            age
+            sops
+          ];
 
-      config = {
-        systems = ["aarch64-darwin"];
-        perSystem = {pkgs, ...}: {
-          formatter = pkgs.alejandra;
-          devShells.default = pkgs.mkShell {
-            packages = with pkgs; [
-              age
-              sops
-            ];
-
-            shellHook = ''
-              export SOPS_AGE_KEY_FILE="$HOME/sops/age/keys.txt"
-            '';
-          };
-          checks = {
-            checks = pkgs.runCommand "checks" {} ''
-              cd ${./.}
-              ${pkgs.alejandra}/bin/alejandra --check .
-              ${pkgs.shellcheck}/bin/shellcheck setup.sh
-              touch $out
-            '';
-          };
+          shellHook = ''
+            export SOPS_AGE_KEY_FILE="$HOME/sops/age/keys.txt"
+          '';
+        };
+        checks = {
+          checks = pkgs.runCommand "checks" {} ''
+            cd ${./.}
+            ${pkgs.alejandra}/bin/alejandra --check .
+            ${pkgs.shellcheck}/bin/shellcheck setup.sh
+            touch $out
+          '';
         };
       };
     };

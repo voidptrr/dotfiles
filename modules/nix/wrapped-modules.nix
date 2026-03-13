@@ -1,5 +1,5 @@
 {self, ...}: {
-  flake.nixModules.wrappedModules = {
+  registry.nixModules.wrappedModules = {
     config,
     lib,
     pkgs,
