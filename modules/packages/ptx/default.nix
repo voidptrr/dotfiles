@@ -1,12 +1,11 @@
 {self, ...}: {
-  perSystem = {pkgs, ...}: let
-    tmuxBin = "${self.packages.${pkgs.stdenv.hostPlatform.system}.tmux}/bin/tmux";
-  in {
+  perSystem = {pkgs, ...}: {
     packages.ptx = pkgs.writeShellApplication {
       name = "ptx";
       runtimeInputs = with pkgs; [
         coreutils
         fzf
+        tmux
       ];
       text = ''
         projects_root="$HOME/git"
@@ -27,12 +26,16 @@
 
         session_name="$(basename "$project_path" | tr ' .:' '_')"
 
-        if "${tmuxBin}" has-session -t "$session_name" 2>/dev/null; then
-          exec "${tmuxBin}" attach-session -t "$session_name"
+        if tmux has-session -t "$session_name" 2>/dev/null; then
+          exec tmux attach-session -t "$session_name"
         else
-          exec "${tmuxBin}" new-session -s "$session_name" -c "$project_path"
+          exec tmux new-session -s "$session_name" -c "$project_path"
         fi
       '';
     };
+  };
+
+  registry.homeManagerModules.ptx = {pkgs, ...}: {
+    home.packages = [self.packages.${pkgs.stdenv.hostPlatform.system}.ptx];
   };
 }

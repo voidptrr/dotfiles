@@ -1,4 +1,8 @@
-{inputs, ...}: {
+{
+  self,
+  inputs,
+  ...
+}: {
   perSystem = {system, ...}: {
     packages.nvim = let
       nixvim' = inputs.nixvim.legacyPackages.${system};
@@ -8,5 +12,9 @@
       };
     in
       nixvim'.makeNixvimWithModule nixvimModule;
+  };
+
+  registry.homeManagerModules.nvim = {pkgs, ...}: {
+    home.packages = [self.packages.${pkgs.stdenv.hostPlatform.system}.nvim];
   };
 }

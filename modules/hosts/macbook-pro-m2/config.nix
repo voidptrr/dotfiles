@@ -1,24 +1,8 @@
 {self, ...}: {
-  registry.hostModules.macbook-pro-m2 = {
-    pkgs,
-    config,
-    ...
-  }: let
-    ghosttyBin = "${self.packages.${pkgs.stdenv.hostPlatform.system}.ghostty}/bin/ghostty";
-  in {
+  registry.hostModules.macbook-pro-m2 = {config, ...}: {
     imports = [self.hostModules.macbook-pro-m2-secrets];
 
     shared = {
-      packages = [
-        "ghostty"
-        "zsh"
-        "tmux"
-        "nvim"
-        "ptx"
-        "git"
-        "opencode"
-      ];
-
       git = {
         name = "voidptrr";
         email = "bruno.tommaso@protonmail.com";
@@ -30,7 +14,7 @@
       skhd = {
         enable = true;
         config = ''
-          cmd - g : ${ghosttyBin}
+          cmd - g : /bin/sh -lc 'nohup ghostty </dev/null >/tmp/ghostty-skhd.log 2>&1 &'
           cmd - b : /usr/bin/open -a "Firefox"
         '';
       };

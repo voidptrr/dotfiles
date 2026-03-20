@@ -12,6 +12,7 @@
 
       # Systems languages
       c
+      cpp
       rust
       zig
 

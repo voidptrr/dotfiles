@@ -1,16 +1,13 @@
-{self, ...}: {
+{...}: {
   registry.darwinModules.system = {
     pkgs,
     username,
     ...
-  }: let
-    wrappedZsh = self.packages.${pkgs.stdenv.hostPlatform.system}.zsh;
-    wrappedZshBin = "${wrappedZsh}/bin/zsh";
-  in {
+  }: {
     programs.zsh.enable = true;
 
     environment = {
-      shells = [wrappedZsh];
+      shells = [pkgs.zsh];
       pathsToLink = ["/share/zsh"];
       systemPackages = with pkgs; [man-pages-posix];
     };
@@ -21,10 +18,12 @@
       uid = 501;
       gid = 20;
       home = "/Users/${username}";
-      shell = wrappedZshBin;
+      shell = "${pkgs.zsh}/bin/zsh";
     };
 
-    fonts.packages = with pkgs; [source-code-pro];
+    fonts.packages = with pkgs; [
+      jetbrains-mono
+    ];
 
     system = {
       stateVersion = 6;
