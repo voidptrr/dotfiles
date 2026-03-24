@@ -3,7 +3,7 @@
   lib,
   ...
 }: {
-  registry.darwinModules.sops = {
+  flake.darwinModules.sops = {
     config,
     username,
     ...

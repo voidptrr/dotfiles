@@ -1,23 +1,21 @@
 {...}: {
-  registry.homeManagerModules.zsh = {...}: {
+  flake.homeManagerModules.zsh = {pkgs, ...}: {
     programs.zsh = {
       enable = true;
       shellAliases = {
         ll = "ls -la";
         nd = "nix develop -c \"$SHELL\"";
+        rebuild =
+          if pkgs.stdenv.hostPlatform.isDarwin
+          then "sudo darwin-rebuild switch --flake ~/git/dotfiles#personal"
+          else "sudo nixos-rebuild switch";
       };
       sessionVariables = {
-        EDITOR = "nvim";
+        EDITOR = "vim";
         BROWSER = "firefox";
         TERMINAL = "ghostty";
       };
       initContent = ''
-        if [[ "$OSTYPE" == darwin* ]]; then
-          alias rebuild='sudo darwin-rebuild switch --flake ~/git/dotfiles#personal'
-        else
-          alias rebuild='sudo nixos-rebuild switch'
-        fi
-
         autoload -Uz vcs_info
         zstyle ':vcs_info:git:*' formats '*%b'
 

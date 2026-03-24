@@ -1,5 +1,10 @@
 {...}: {
-  registry.homeManagerModules.opencode = {...}: {
-    programs.opencode.enable = true;
+  flake.homeManagerModules.opencode = {...}: {
+    programs.opencode = {
+      enable = true;
+      settings = {
+        theme = "everforest";
+      };
+    };
   };
 }

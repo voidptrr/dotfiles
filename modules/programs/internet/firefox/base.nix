@@ -3,7 +3,7 @@
   lib,
   ...
 }: {
-  registry.homeManagerModules.firefox = {pkgs, ...}: {
+  flake.homeManagerModules.firefox = {pkgs, ...}: {
     programs.firefox = {
       enable = true;
       package = lib.mkDefault (

@@ -1,5 +1,5 @@
-{...}: {
-  registry.nixModules.git = {lib, ...}: {
+{lib, ...}: {
+  flake.sharedModules.git = {
     options.shared.git = {
       name = lib.mkOption {
         type = lib.types.nonEmptyStr;
@@ -16,15 +16,9 @@
     };
   };
 
-  registry.homeManagerModules.git = {
-    config,
-    osConfig,
-    pkgs,
-    ...
-  }: {
+  flake.homeManagerModules.git = {osConfig, ...}: {
     programs.git = {
       enable = true;
-      package = pkgs.git;
 
       signing = {
         key = osConfig.shared.git.signingKeyPath;
@@ -43,7 +37,5 @@
         push.autoSetupRemote = true;
       };
     };
-
-    home.sessionVariables.GIT_CONFIG_GLOBAL = "${config.xdg.configHome}/git/config";
   };
 }

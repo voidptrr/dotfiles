@@ -1,5 +1,5 @@
 {lib, ...}: {
-  registry.darwinModules.homebrew = {
+  flake.darwinModules.homebrew = {
     username,
     config,
     ...

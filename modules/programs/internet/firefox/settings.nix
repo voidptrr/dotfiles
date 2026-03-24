@@ -1,5 +1,5 @@
 {...}: {
-  registry.homeManagerModules.firefox-settings = {...}: {
+  flake.homeManagerModules.firefox-settings = {...}: {
     programs.firefox.profiles.default.settings = {
       "browser.startup.homepage" = "about:blank";
       "browser.warnOnQuit" = false;

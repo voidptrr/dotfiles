@@ -1,9 +1,5 @@
-{
-  config,
-  lib,
-  ...
-}: {
-  options.registry = {
+{lib, ...}: {
+  options.flake = {
     darwinModules = lib.mkOption {
       type = lib.types.attrsOf lib.types.raw;
       default = {};
@@ -16,10 +12,10 @@
       description = "Registry of Home Manager modules.";
     };
 
-    nixModules = lib.mkOption {
+    sharedModules = lib.mkOption {
       type = lib.types.attrsOf lib.types.raw;
       default = {};
-      description = "Registry of shared Nix modules.";
+      description = "Registry of shared modules.";
     };
 
     hostModules = lib.mkOption {
@@ -27,12 +23,5 @@
       default = {};
       description = "Registry of host-specific modules.";
     };
-  };
-
-  config.flake = {
-    darwinModules = config.registry.darwinModules;
-    homeManagerModules = config.registry.homeManagerModules;
-    nixModules = config.registry.nixModules;
-    hostModules = config.registry.hostModules;
   };
 }

@@ -1,8 +1,0 @@
-font-family = JetBrains Mono 
-font-size = 14
-maximize = true
-working-directory = home
-window-inherit-working-directory = false
-command = zsh
-macos-titlebar-style = hidden
-macos-icon = chalkboard

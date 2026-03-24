@@ -16,8 +16,9 @@ inputs.nix-darwin.lib.darwinSystem {
 
   modules =
     builtins.attrValues self.darwinModules
-    ++ builtins.attrValues self.nixModules
+    ++ builtins.attrValues self.sharedModules
     ++ [
+      (import ./nix-config.nix)
       hostModule
       inputs.nix-homebrew.darwinModules.nix-homebrew
       inputs.home-manager.darwinModules.home-manager

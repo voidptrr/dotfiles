@@ -1,5 +1,5 @@
 {...}: {
-  registry.darwinModules.system = {
+  flake.darwinModules.system = {
     pkgs,
     username,
     ...
