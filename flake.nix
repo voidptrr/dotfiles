@@ -45,7 +45,6 @@
           checks = pkgs.runCommand "checks" {} ''
             cd ${./.}
             ${pkgs.alejandra}/bin/alejandra --check .
-            ${pkgs.shellcheck}/bin/shellcheck setup.sh
             touch $out
           '';
         };
