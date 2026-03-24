@@ -1,6 +1,6 @@
 {lib, ...}: {
   flake.sharedModules.git = {
-    options.shared.git = {
+    options.git = {
       name = lib.mkOption {
         type = lib.types.nonEmptyStr;
       };
@@ -21,14 +21,14 @@
       enable = true;
 
       signing = {
-        key = osConfig.shared.git.signingKeyPath;
+        key = osConfig.git.signingKeyPath;
         signByDefault = true;
       };
 
       settings = {
         user = {
-          name = osConfig.shared.git.name;
-          email = osConfig.shared.git.email;
+          name = osConfig.git.name;
+          email = osConfig.git.email;
         };
 
         gpg.format = "ssh";

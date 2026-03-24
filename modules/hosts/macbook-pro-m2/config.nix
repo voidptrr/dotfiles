@@ -6,7 +6,7 @@
   }: {
     imports = [self.hostModules.macbook-pro-m2-secrets];
 
-    shared.git = {
+    git = {
       name = "voidptrr";
       email = "bruno.tommaso@protonmail.com";
       signingKeyPath = config.sops.secrets.git-signing-key.path;

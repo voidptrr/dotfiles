@@ -4,23 +4,6 @@
     username,
     ...
   }: {
-    programs.zsh.enable = true;
-
-    environment = {
-      shells = [pkgs.zsh];
-      pathsToLink = ["/share/zsh"];
-      systemPackages = with pkgs; [man-pages-posix];
-    };
-
-    users.knownUsers = [username];
-    users.users.${username} = {
-      name = username;
-      uid = 501;
-      gid = 20;
-      home = "/Users/${username}";
-      shell = "${pkgs.zsh}/bin/zsh";
-    };
-
     fonts.packages = with pkgs; [
       jetbrains-mono
     ];
