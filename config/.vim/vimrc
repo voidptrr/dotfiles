@@ -1,0 +1,7 @@
+let mapleader=","
+let maplocalleader=","
+
+filetype indent plugin on
+syntax on
+
+colorscheme classic-dark
