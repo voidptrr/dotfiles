@@ -3,7 +3,7 @@
     programs.opencode = {
       enable = true;
       settings = {
-        theme = "everforest";
+        theme = "kanagawa";
       };
     };
   };
