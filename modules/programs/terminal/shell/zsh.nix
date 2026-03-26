@@ -5,13 +5,14 @@
       shellAliases = {
         ll = "ls -la";
         nd = "nix develop -c \"$SHELL\"";
+        vim = "nvim";
         rebuild =
           if pkgs.stdenv.hostPlatform.isDarwin
           then "sudo darwin-rebuild switch --flake ~/git/dotfiles#personal"
           else "sudo nixos-rebuild switch";
       };
       sessionVariables = {
-        EDITOR = "vim";
+        EDITOR = "nvim";
         BROWSER = "firefox";
         TERMINAL = "ghostty";
       };

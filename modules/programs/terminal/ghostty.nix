@@ -9,6 +9,7 @@
       settings =
         {
           font-family = "JetBrains Mono";
+          font-size = 14;
           background = "#151515";
           maximize = true;
           working-directory = "home";

@@ -35,6 +35,8 @@
           packages = with pkgs; [
             age
             sops
+            nil
+            lua-language-server
           ];
 
           shellHook = ''
@@ -45,6 +47,7 @@
           checks = pkgs.runCommand "checks" {} ''
             cd ${./.}
             ${pkgs.alejandra}/bin/alejandra --check .
+            ${pkgs.stylua}/bin/stylua --check config/nvim
             touch $out
           '';
         };
