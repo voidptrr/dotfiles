@@ -11,6 +11,7 @@ vim.opt.cursorline = true
 vim.opt.autoindent = true
 vim.opt.smartindent = true
 vim.opt.backspace = "indent,start,eol"
+vim.opt.completeopt = "menuone,noselect,popup"
 
 vim.opt.backup = false
 vim.opt.writebackup = false

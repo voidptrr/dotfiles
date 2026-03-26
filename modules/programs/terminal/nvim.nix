@@ -21,8 +21,7 @@
                 nix
                 rust
               ]))
-            gruvbox-nvim
-            plenary-nvim
+            kanagawa-nvim
             telescope-nvim
             telescope-fzf-native-nvim
           ];

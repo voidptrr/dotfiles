@@ -33,9 +33,13 @@
         formatter = pkgs.alejandra;
         devShells.default = pkgs.mkShell {
           packages = with pkgs; [
+            # secrets
             age
             sops
+
+            # nvim
             nil
+            stylua
             lua-language-server
           ];
 

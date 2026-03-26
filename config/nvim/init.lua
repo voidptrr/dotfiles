@@ -2,4 +2,4 @@ vim.g.mapleader = ","
 vim.g.maplocalleader = ","
 
 require("config.options")
-require("config.gruvbox")
+require("config.colors")
