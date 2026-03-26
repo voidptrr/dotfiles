@@ -33,6 +33,8 @@ local function setup_kanagawa()
     },
     overrides = function(colors)
       return {
+        PMenu = { bg = colors.palette.sumiInk3 },
+        PmenuKind = { bg = colors.palette.sumiInk3 },
         User1 = { bg = "#000000", fg = colors.palette.waveAqua2 },
         User2 = {
           bg = "#000000",
