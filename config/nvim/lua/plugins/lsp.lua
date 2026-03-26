@@ -43,13 +43,8 @@ local function setup_diagnostics()
   })
 end
 
-local function setup_lsp_servers()
-  local servers = {
-    "lua_ls",
-    "nil_ls",
-    "rust_analyzer",
-  }
-
+---@param servers string[]
+local function setup_lsp_servers(servers)
   for _, server in ipairs(servers) do
     vim.lsp.enable(server)
   end
@@ -71,9 +66,10 @@ local function setup_lsp_servers()
   })
 end
 
-function M.setup()
+---@param servers string[]
+function M.setup(servers)
   setup_diagnostics()
-  setup_lsp_servers()
+  setup_lsp_servers(servers)
 end
 
 return M

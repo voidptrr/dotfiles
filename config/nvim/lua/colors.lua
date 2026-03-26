@@ -33,14 +33,14 @@ local function setup_kanagawa()
     },
     overrides = function(colors)
       return {
-        User1 = { bg = "#000000", fg = colors.theme.ui.fg },
+        User1 = { bg = "#000000", fg = colors.palette.waveAqua2 },
         User2 = {
           bg = "#000000",
           fg = colors.palette.dragonYellow,
         },
         User3 = { bg = "#000000", fg = colors.theme.ui.fg },
         User4 = { bg = "#000000", fg = colors.theme.ui.fg },
-        User5 = { bg = "#000000", fg = colors.theme.ui.fg },
+        User5 = { bg = "#000000", fg = colors.palette.waveRed },
       }
     end,
   })
