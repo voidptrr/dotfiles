@@ -4,6 +4,9 @@ if not ok then
 end
 
 ibl.setup({
+  indent = {
+    char = "│",
+  },
   scope = {
     enabled = false,
   },
