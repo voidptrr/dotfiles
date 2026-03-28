@@ -24,6 +24,7 @@
             kanagawa-nvim
             telescope-nvim
             telescope-fzf-native-nvim
+            indent-blankline-nvim
           ];
         };
       };
