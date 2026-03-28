@@ -32,17 +32,21 @@ local function setup_kanagawa()
       },
     },
     overrides = function(colors)
+      local black_color = "#000000"
       return {
-        PMenu = { bg = colors.palette.sumiInk3 },
-        PmenuKind = { bg = colors.palette.sumiInk3 },
-        User1 = { bg = "#000000", fg = colors.palette.waveAqua2 },
-        User2 = {
-          bg = "#000000",
-          fg = colors.palette.dragonYellow,
-        },
-        User3 = { bg = "#000000", fg = colors.theme.ui.fg },
-        User4 = { bg = "#000000", fg = colors.theme.ui.fg },
-        User5 = { bg = "#000000", fg = colors.palette.waveRed },
+        Pmenu = { bg = colors.palette.sumiInk3 },
+        PmenuSel = { bg = colors.palette.sumiInk4, fg = colors.palette.fujiWhite },
+        PmenuKind = { bg = colors.palette.sumiInk3, fg = colors.palette.fujiWhite },
+        PmenuKindSel = { bg = colors.palette.sumiInk4, fg = colors.palette.fujiWhite },
+        PmenuExtra = { bg = colors.palette.sumiInk3, fg = colors.theme.ui.fg_dim },
+        PmenuExtraSel = { bg = colors.palette.sumiInk4, fg = colors.theme.ui.fg_dim },
+        PmenuSbar = { bg = colors.palette.sumiInk2 },
+        PmenuThumb = { bg = colors.palette.waveBlue2 },
+        User1 = { bg = black_color, fg = colors.palette.waveAqua2 },
+        User2 = { bg = black_color, fg = colors.palette.dragonYellow },
+        User3 = { bg = black_color, fg = colors.theme.ui.fg },
+        User4 = { bg = black_color, fg = colors.theme.ui.fg },
+        User5 = { bg = black_color, fg = colors.palette.waveRed },
       }
     end,
   })

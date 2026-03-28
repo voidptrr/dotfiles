@@ -10,7 +10,7 @@
         {
           font-family = "JetBrains Mono";
           font-size = 14;
-          background = "#151515";
+          theme = "Kanagawa Dragon";
           maximize = true;
           working-directory = "home";
           window-inherit-working-directory = false;

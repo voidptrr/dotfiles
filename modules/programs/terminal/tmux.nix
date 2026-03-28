@@ -17,16 +17,16 @@
         set -as terminal-features ',*:RGB'
         set -g focus-events on
 
-        set -g status-style 'fg=#d0d0d0,bg=#151515'
+        set -g status-style 'fg=default,bg=default'
         set -g status-justify left
-        set -g message-style 'fg=#d0d0d0,bg=#202020'
+        set -g message-style 'fg=default,bg=default'
         set -g pane-border-style 'fg=#303030'
         set -g pane-active-border-style 'fg=#6a9fb5'
-        set -g window-status-current-style 'fg=#151515,bg=#f4bf75,bold'
-        set -g window-status-style 'fg=#b0b0b0,bg=#151515'
-        set -g window-status-separator ""
-        set -g window-status-format '   #I   '
-        set -g window-status-current-format '   #I   '
+        set -g window-status-current-style 'fg=default,bg=default,bold'
+        set -g window-status-style 'fg=default,bg=default'
+        set -g window-status-separator ' '
+        set -g window-status-format '#I:#W'
+        set -g window-status-current-format '#[bold]#I:#W#[nobold]'
         set -g status-left ""
         set -g status-right ""
 
