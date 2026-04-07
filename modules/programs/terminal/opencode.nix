@@ -2,7 +2,7 @@
   flake.homeManagerModules.opencode = {...}: {
     programs.opencode = {
       enable = true;
-      settings = {
+      tui = {
         theme = "kanagawa";
       };
     };

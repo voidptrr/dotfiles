@@ -21,5 +21,5 @@ telescope.setup({
 pcall(telescope.load_extension, "fzf")
 
 local builtin = require("telescope.builtin")
-utils.map("n", "<leader>lf", builtin.find_files)
-utils.map("n", "<leader>lg", builtin.git_files)
+utils.map("n", "<leader>ff", builtin.find_files)
+utils.map("n", "<leader>fg", builtin.git_files)

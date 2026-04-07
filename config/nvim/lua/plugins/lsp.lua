@@ -54,7 +54,7 @@ local function setup_lsp_servers(servers)
     callback = function(ev)
       local client = assert(vim.lsp.get_client_by_id(ev.data.client_id))
       if client:supports_method("textDocument/completion") then
-        vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = false })
+        vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
       end
 
       local opts = { buffer = ev.buf, silent = true }
@@ -62,6 +62,7 @@ local function setup_lsp_servers(servers)
       utils.map("n", "<leader>gi", vim.lsp.buf.implementation, opts)
       utils.map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
       utils.map("n", "<leader>gr", vim.lsp.buf.references, opts)
+      utils.map("n", "<leader>gn", vim.lsp.buf.rename, opts)
     end,
   })
 end
