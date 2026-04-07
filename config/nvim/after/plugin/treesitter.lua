@@ -1,6 +1,5 @@
 local ft_to_lang = {
   c = "c",
-  cpp = "cpp",
   lua = "lua",
   nix = "nix",
   rust = "rust",

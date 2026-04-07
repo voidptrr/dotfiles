@@ -20,7 +20,6 @@
     tsRuntime = pkgs.symlinkJoin {
       name = "nvim-ts-runtime";
       paths = [
-        (mkTsRuntime "cpp" pkgs.tree-sitter-grammars.tree-sitter-cpp)
         (mkTsRuntime "nix" pkgs.tree-sitter-grammars.tree-sitter-nix)
         (mkTsRuntime "rust" pkgs.tree-sitter-grammars.tree-sitter-rust)
       ];
