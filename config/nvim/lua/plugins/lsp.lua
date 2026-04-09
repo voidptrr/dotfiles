@@ -1,6 +1,7 @@
 local utils = require("utils")
 
 local M = {}
+local has_blink, blink = pcall(require, "blink.cmp")
 
 local function setup_diagnostics()
   local function diagnostics_to_quickfix()
@@ -46,6 +47,12 @@ end
 ---@param servers string[]
 local function setup_lsp_servers(servers)
   for _, server in ipairs(servers) do
+    if has_blink then
+      local server_config = vim.lsp.config[server] or {}
+      local capabilities = blink.get_lsp_capabilities(server_config.capabilities)
+      vim.lsp.config(server, { capabilities = capabilities })
+    end
+
     vim.lsp.enable(server)
   end
 
@@ -53,7 +60,7 @@ local function setup_lsp_servers(servers)
     group = "custom.lsp",
     callback = function(ev)
       local client = assert(vim.lsp.get_client_by_id(ev.data.client_id))
-      if client:supports_method("textDocument/completion") then
+      if not has_blink and client:supports_method("textDocument/completion") then
         vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
       end
 

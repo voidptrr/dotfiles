@@ -5,7 +5,7 @@
     ...
   }: {
     fonts.packages = with pkgs; [
-      jetbrains-mono
+      source-code-pro
     ];
 
     system = {

@@ -19,9 +19,9 @@
       '';
     tsRuntime = pkgs.symlinkJoin {
       name = "nvim-ts-runtime";
-      paths = [
-        (mkTsRuntime "nix" pkgs.tree-sitter-grammars.tree-sitter-nix)
-        (mkTsRuntime "rust" pkgs.tree-sitter-grammars.tree-sitter-rust)
+      paths = with pkgs.tree-sitter-grammars; [
+        (mkTsRuntime "nix" tree-sitter-nix)
+        (mkTsRuntime "rust" tree-sitter-rust)
       ];
     };
     neovimWithPlugins = pkgs.neovim.override {
@@ -37,6 +37,7 @@
             telescope-nvim
             telescope-fzf-native-nvim
             indent-blankline-nvim
+            blink-cmp
           ];
         };
       };

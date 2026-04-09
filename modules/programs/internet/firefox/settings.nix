@@ -29,6 +29,9 @@
       "browser.urlbar.groupLabels.enabled" = false;
       "browser.urlbar.quicksuggest.enabled" = false;
       "browser.newtabpage.activity-stream.feeds.recommendationprovider" = false;
+
+      "font.name.monospace.x-western" = "Source Code Pro";
+      "font.name-list.monospace.x-western" = "Source Code Pro";
     };
   };
 }

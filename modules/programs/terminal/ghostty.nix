@@ -8,8 +8,8 @@
         else pkgs.ghostty;
       settings =
         {
-          font-family = "JetBrains Mono";
-          font-size = 14;
+          font-family = "Source Code Pro";
+          font-size = 13;
           theme = "Kanagawa Dragon";
           maximize = true;
           working-directory = "home";

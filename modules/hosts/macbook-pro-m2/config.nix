@@ -17,13 +17,12 @@
         brews = ["mole"];
         casks = ["firefox"];
         masApps = {
-          KakaoTalk = 869223134;
+          #KakaoTalk = 869223134;
         };
       };
 
       dock.persistentApps = [
         "/System/Applications/Music.app"
-        "/Applications/Kakaotalk.app"
         "/Applications/Firefox.app"
         "${pkgs.ghostty-bin}/Applications/Ghostty.App"
       ];
