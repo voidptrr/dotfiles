@@ -63,15 +63,7 @@ in {
 
             users.${username}.imports = [
               {
-                imports = [
-                  ../features/zsh.nix
-                  ../features/ghostty.nix
-                  ../features/firefox
-                  ../features/git.nix
-                  ../features/linux/i3.nix
-                  ../features/nvim.nix
-                ];
-
+                imports = [ ../features ];
                 home = {
                   inherit username;
                   homeDirectory = "/home/${username}";

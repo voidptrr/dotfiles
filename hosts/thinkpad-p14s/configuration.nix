@@ -55,7 +55,6 @@
     isNormalUser = true;
     extraGroups = ["wheel"];
     shell = pkgs.zsh;
-    packages = with pkgs; [opencode];
   };
 
   hardware.alsa.enablePersistence = true;
@@ -65,6 +64,10 @@
     brightnessctl
     pulseaudio
     alsa-utils
+    (polybar.override {
+      i3Support = true;
+      pulseSupport = true;
+    })
   ];
 
   fonts.packages = with pkgs; [source-code-pro];
