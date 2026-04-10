@@ -63,7 +63,7 @@ in {
 
             users.${username}.imports = [
               {
-                imports = [ ../features ];
+                imports = [../features];
                 home = {
                   inherit username;
                   homeDirectory = "/home/${username}";
