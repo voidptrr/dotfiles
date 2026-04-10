@@ -6,6 +6,7 @@
   DisableFirefoxAccounts = true;
   DisablePocket = true;
   DontCheckDefaultBrowser = true;
+  PasswordManagerEnabled = false;
   OfferToSaveLogins = false;
   EnableTrackingProtection = {
     Value = true;

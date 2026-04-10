@@ -1,0 +1,10 @@
+configuration {
+    modi: "drun";
+    show-icons: false;
+    icon-theme: "Papirus";
+    drun-display-format: "{name}";
+    disable-history: false;
+    hover-select: true;
+}
+
+@theme "theme.rasi"

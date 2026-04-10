@@ -1,0 +1,117 @@
+* {
+    bg: #1f1f28;
+    bg-alt: #2a2a37;
+    fg: #dcd7ba;
+    fg-muted: #7f8490;
+    accent: #e6c384;
+    urgent: #c34043;
+
+    font: "Source Code Pro 13";
+}
+
+window {
+    enabled: true;
+    fullscreen: false;
+    width: 42%;
+    location: center;
+    anchor: center;
+    border: 2px;
+    border-color: @accent;
+    border-radius: 10px;
+    background-color: @bg;
+    padding: 12px;
+}
+
+mainbox {
+    background-color: @bg;
+    spacing: 10px;
+    children: ["inputbar", "listview"];
+}
+
+inputbar {
+    background-color: @bg-alt;
+    text-color: @fg;
+    border: 1px;
+    border-color: @accent;
+    border-radius: 8px;
+    padding: 8px 10px;
+    children: ["prompt", "entry"];
+}
+
+prompt {
+    background-color: @bg-alt;
+    text-color: @accent;
+    margin: 0px 8px 0px 0px;
+}
+
+textbox-prompt-colon {
+    background-color: @bg-alt;
+    text-color: @accent;
+}
+
+entry {
+    background-color: @bg-alt;
+    text-color: @fg;
+    cursor: text;
+    cursor-color: @accent;
+    placeholder: "Search apps";
+    placeholder-color: @fg-muted;
+}
+
+listview {
+    lines: 8;
+    columns: 1;
+    dynamic: false;
+    fixed-height: true;
+    background-color: @bg;
+    spacing: 4px;
+    scrollbar: false;
+}
+
+element {
+    background-color: @bg;
+    text-color: @fg;
+    border-radius: 8px;
+    padding: 8px;
+}
+
+element normal.normal {
+    background-color: @bg;
+    text-color: @fg;
+}
+
+element normal.active {
+    background-color: @bg;
+    text-color: @fg;
+}
+
+element normal.urgent,
+element selected.urgent {
+    text-color: @urgent;
+}
+
+element selected.normal {
+    background-color: @bg-alt;
+    text-color: @fg;
+    border: 0px 0px 2px 0px;
+    border-color: @accent;
+}
+
+element selected.active {
+    background-color: @bg-alt;
+    text-color: @fg;
+    border: 0px 0px 2px 0px;
+    border-color: @accent;
+}
+
+element-text {
+    background-color: inherit;
+    text-color: inherit;
+    vertical-align: 0.5;
+}
+
+element-icon {
+    size: 1.0em;
+    background-color: inherit;
+    margin: 0px 10px 0px 0px;
+}
