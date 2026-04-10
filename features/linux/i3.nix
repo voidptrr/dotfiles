@@ -22,9 +22,4 @@ in {
     source = config.lib.file.mkOutOfStoreSymlink "${repoPath}/config/polybar";
     recursive = true;
   };
-
-  xdg.configFile."rofi" = {
-    source = config.lib.file.mkOutOfStoreSymlink "${repoPath}/config/rofi";
-    recursive = true;
-  };
 }
