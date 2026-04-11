@@ -30,10 +30,6 @@
     brightnessctl
     pulseaudio
     alsa-utils
-    (polybar.override {
-      i3Support = true;
-      pulseSupport = true;
-    })
   ];
 
   fonts.packages = with pkgs; [source-code-pro];

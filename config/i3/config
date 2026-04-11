@@ -1,16 +1,34 @@
 set $mod Mod4
 set $terminal ghostty
 
-exec_always --no-startup-id sh ~/.config/polybar/launch.sh
-
 font pango:Source Code Pro 13
+
+bar {
+  position top
+  status_command i3status
+  tray_output primary
+  separator_symbol "|"
+
+  colors {
+    background #1f1f28
+    statusline #dcd7ba
+    separator #7f8490
+
+    focused_workspace #1f1f28 #1f1f28 #dcd7ba
+    active_workspace #2a2a37 #2a2a37 #dcd7ba
+    inactive_workspace #1f1f28 #1f1f28 #7f8490
+    urgent_workspace #c34043 #c34043 #ffffff
+    binding_mode #c34043 #c34043 #ffffff
+  }
+}
 
 floating_modifier $mod
 focus_follows_mouse yes
 hide_edge_borders none
 
-for_window [class="Rofi"] floating enable
-for_window [class="Rofi"] move position center
+for_window [title="coding"] floating enable
+for_window [title="coding"] resize set 1400 900
+for_window [title="coding"] move position center
 
 default_border pixel 2
 default_floating_border pixel 2
@@ -24,6 +42,7 @@ client.urgent #c34043 #1f1f28 #c34043 #c34043 #c34043
 
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
@@ -31,6 +50,7 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 bindsym $mod+Return exec --no-startup-id $terminal
 bindsym $mod+m exec --no-startup-id rofi -show drun -normal-window
 bindsym $mod+f exec --no-startup-id firefox
+bindsym $mod+c exec --no-startup-id ghostty --title=coding
 bindsym $mod+Shift+q kill
 
 bindsym $mod+h focus left

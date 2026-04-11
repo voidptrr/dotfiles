@@ -6,8 +6,8 @@ in {
     recursive = true;
   };
 
-  xdg.configFile."polybar" = {
-    source = config.lib.file.mkOutOfStoreSymlink "${repoPath}/config/polybar";
+  xdg.configFile."i3status" = {
+    source = config.lib.file.mkOutOfStoreSymlink "${repoPath}/config/i3status";
     recursive = true;
   };
 }

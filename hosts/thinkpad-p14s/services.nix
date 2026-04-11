@@ -12,11 +12,18 @@
       enable = true;
       touchpad = {
         naturalScrolling = true;
-        tapping = false; 
+        tapping = false;
       };
     };
 
-    displayManager.ly.enable = true;
+    displayManager.ly = {
+      enable = true;
+      settings = {
+        animation = "none";
+        hide_borders = false;
+        clock = "%Y-%m-%d %H:%M";
+      };
+    };
 
     pipewire = {
       enable = true;
