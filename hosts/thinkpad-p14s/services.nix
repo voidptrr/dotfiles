@@ -10,7 +10,10 @@
 
     libinput = {
       enable = true;
-      touchpad.naturalScrolling = true;
+      touchpad = {
+        naturalScrolling = true;
+        tapping = false; 
+      };
     };
 
     displayManager.ly.enable = true;

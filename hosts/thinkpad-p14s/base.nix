@@ -15,7 +15,6 @@
   };
 
   time.timeZone = "Europe/London";
-
   programs.zsh.enable = true;
 
   users.users.${username} = {
