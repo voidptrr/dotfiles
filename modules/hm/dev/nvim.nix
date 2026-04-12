@@ -1,5 +1,6 @@
 {
   config,
+  lib,
   pkgs,
   ...
 }: let
@@ -42,9 +43,13 @@
     };
   };
 in {
-  home.packages = [neovimWithPlugins];
-  xdg.configFile."nvim" = {
-    source = config.lib.file.mkOutOfStoreSymlink "${repoPath}/config/nvim";
-    recursive = true;
+  options.hm.dev.nvim.enable = lib.mkEnableOption "neovim";
+
+  config = lib.mkIf config.hm.dev.nvim.enable {
+    home.packages = [neovimWithPlugins];
+    xdg.configFile."nvim" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${repoPath}/config/nvim";
+      recursive = true;
+    };
   };
 }

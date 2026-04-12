@@ -23,15 +23,5 @@
     shell = pkgs.zsh;
   };
 
-  hardware.alsa.enablePersistence = true;
-  security.rtkit.enable = true;
-
-  environment.systemPackages = with pkgs; [
-    brightnessctl
-    pulseaudio
-    alsa-utils
-  ];
-
-  fonts.packages = with pkgs; [source-code-pro];
   system.stateVersion = "25.11";
 }

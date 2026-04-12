@@ -20,8 +20,8 @@ in {
     hostDirectory,
     system,
   }: let
-    hostConfiguration = ../hosts + "/${hostDirectory}/configuration.nix";
-    hostHomeConfiguration = ../hosts + "/${hostDirectory}/config.nix";
+    hostConfiguration = ../hosts + "/${hostDirectory}/system.nix";
+    hostHomeConfiguration = ../hosts + "/${hostDirectory}/hm.nix";
     nixConfig = {
       nix = {
         settings = {
@@ -50,6 +50,7 @@ in {
 
       modules = [
         nixConfig
+        ../modules/nixos
         hostConfiguration
         inputs.home-manager.nixosModules.home-manager
         {
@@ -63,7 +64,7 @@ in {
 
             users.${username}.imports = [
               {
-                imports = [../features];
+                imports = [../modules/hm];
                 home = {
                   inherit username;
                   homeDirectory = "/home/${username}";
