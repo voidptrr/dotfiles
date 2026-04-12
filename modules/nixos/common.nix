@@ -3,7 +3,7 @@
   security.rtkit.enable = true;
 
   fonts.packages = with pkgs; [source-code-pro];
-   environment.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs; [
     brightnessctl
     pulseaudio
     alsa-utils
