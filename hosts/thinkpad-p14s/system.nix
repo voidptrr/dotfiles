@@ -7,11 +7,10 @@
 
   nixos = {
     displayServer.xserver.enable = true;
+    displayManager.ly.enable = true;
     windowManager.i3 = {
       enable = true;
       usei3Status = true;
     };
-
-    displayManager.ly.enable = true;
   };
 }

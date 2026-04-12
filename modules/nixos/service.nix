@@ -21,35 +21,38 @@
     };
   };
 
-  config = {
-    assertions = [
-      {
-        assertion = !config.nixos.windowManager.i3.enable || config.nixos.displayServer.xserver.enable;
-        message = "nixos.windowManager.i3.enable requires nixos.displayServer.xserver.enable";
-      }
-    ];
-
-    services = {
-      xserver = lib.mkIf config.nixos.displayServer.xserver.enable ({
-          enable = true;
-          autoRepeatDelay = 200;
-          autoRepeatInterval = 35;
-          xkb.options = "caps:escape";
+  config = lib.mkMerge [
+    {
+      assertions = [
+        {
+          assertion = !config.nixos.windowManager.i3.enable || config.nixos.displayServer.xserver.enable;
+          message = "nixos.windowManager.i3.enable requires nixos.displayServer.xserver.enable";
         }
-        // lib.mkIf config.nixos.windowManager.i3.enable {
-          windowManager.i3.enable = true;
-        });
+      ];
+    }
 
-      displayManager = lib.mkIf config.nixos.displayManager.ly.enable {
-        ly = {
-          enable = true;
-          settings = {
-            animation = "none";
-            hide_borders = false;
-            clock = "%Y-%m-%d %H:%M";
-          };
+    (lib.mkIf config.nixos.displayServer.xserver.enable {
+      services.xserver = {
+        enable = true;
+        autoRepeatDelay = 200;
+        autoRepeatInterval = 35;
+        xkb.options = "caps:escape";
+      };
+    })
+
+    (lib.mkIf config.nixos.windowManager.i3.enable {
+      services.xserver.windowManager.i3.enable = true;
+    })
+
+    (lib.mkIf config.nixos.displayManager.ly.enable {
+      services.displayManager.ly = {
+        enable = true;
+        settings = {
+          animation = "none";
+          hide_borders = false;
+          clock = "%Y-%m-%d %H:%M";
         };
       };
-    };
-  };
+    })
+  ];
 }
