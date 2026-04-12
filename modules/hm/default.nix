@@ -1,9 +1,9 @@
 {...}: {
   imports = [
-    ./browser/firefox.nix
+    ./browser
     ./dev
-    ./i3.nix
-    ./shell/zsh.nix
-    ./terminal/ghostty.nix
+    ./xdg
+    ./shell
+    ./terminal
   ];
 }
