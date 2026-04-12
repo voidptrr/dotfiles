@@ -2,7 +2,7 @@
   imports = [
     ./browser
     ./dev
-    ./xdg
+    ./wm
     ./shell
     ./terminal
   ];
