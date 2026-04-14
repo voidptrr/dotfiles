@@ -46,7 +46,11 @@ in {
   options.hm.dev.nvim.enable = lib.mkEnableOption "neovim";
 
   config = lib.mkIf config.hm.dev.nvim.enable {
-    home.packages = [neovimWithPlugins];
+    home.packages = [
+      neovimWithPlugins
+      pkgs.xclip
+      pkgs.wl-clipboard
+    ];
     xdg.configFile."nvim" = {
       source = config.lib.file.mkOutOfStoreSymlink "${repoPath}/config/nvim";
       recursive = true;

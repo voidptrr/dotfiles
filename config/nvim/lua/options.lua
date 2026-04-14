@@ -12,6 +12,7 @@ opt.mouse = "a"
 opt.cursorline = true
 opt.scrolloff = 10
 opt.completeopt = "menuone,noselect,popup"
+opt.clipboard="unnamedplus"
 
 -- Editing
 opt.tabstop = 4

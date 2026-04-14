@@ -23,7 +23,11 @@
               bookmarks = [
                 {
                   name = "GitHub";
-                  url = "https://github.com/";
+                  url = "https://github.com";
+                }
+                {
+                  name = "LC Problems";
+                  url = "https://zerotrac.github.io/leetcode_problem_rating";
                 }
               ];
             }
