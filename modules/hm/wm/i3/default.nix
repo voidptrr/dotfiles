@@ -4,6 +4,7 @@
   ...
 }: let
   i3 = osConfig.nixos.windowManager.i3;
+  p = osConfig.nixos.theme.palette;
 in {
   imports = [
     ./i3status.nix
@@ -15,6 +16,10 @@ in {
         {
           assertion = !i3.usei3Status || i3.enable;
           message = "nixos.windowManager.i3.usei3Status requires nixos.windowManager.i3.enable";
+        }
+        {
+          assertion = !i3.enable || osConfig.nixos.theme.enable;
+          message = "nixos.windowManager.i3.enable requires nixos.theme.enable";
         }
       ];
     }
@@ -48,32 +53,32 @@ in {
 
           colors = {
             focused = {
-              border = "#e6c384";
-              background = "#1f1f28";
-              text = "#e6c384";
-              indicator = "#e6c384";
-              childBorder = "#e6c384";
+              border = p.yellow;
+              background = p.bg0;
+              text = p.yellow;
+              indicator = p.yellow;
+              childBorder = p.yellow;
             };
             unfocused = {
-              border = "#444b6a";
-              background = "#1f1f28";
-              text = "#7f8490";
-              indicator = "#444b6a";
-              childBorder = "#444b6a";
+              border = p.bg1;
+              background = p.bg0;
+              text = p.gray;
+              indicator = p.bg1;
+              childBorder = p.bg1;
             };
             focusedInactive = {
-              border = "#444b6a";
-              background = "#1f1f28";
-              text = "#7f8490";
-              indicator = "#444b6a";
-              childBorder = "#444b6a";
+              border = p.bg1;
+              background = p.bg0;
+              text = p.gray;
+              indicator = p.bg1;
+              childBorder = p.bg1;
             };
             urgent = {
-              border = "#c34043";
-              background = "#1f1f28";
-              text = "#c34043";
-              indicator = "#c34043";
-              childBorder = "#c34043";
+              border = p.red;
+              background = p.bg0;
+              text = p.red;
+              indicator = p.red;
+              childBorder = p.red;
             };
           };
           bars = [
@@ -86,33 +91,33 @@ in {
                 size = 13.0;
               };
               colors = {
-                background = "#1f1f28";
-                statusline = "#dcd7ba";
-                separator = "#7f8490";
+                background = p.bg0;
+                statusline = p.fg1;
+                separator = p.gray;
                 focusedWorkspace = {
-                  border = "#1f1f28";
-                  background = "#1f1f28";
-                  text = "#dcd7ba";
+                  border = p.bg0;
+                  background = p.bg0;
+                  text = p.fg1;
                 };
                 activeWorkspace = {
-                  border = "#2a2a37";
-                  background = "#2a2a37";
-                  text = "#dcd7ba";
+                  border = p.bg1;
+                  background = p.bg1;
+                  text = p.fg1;
                 };
                 inactiveWorkspace = {
-                  border = "#1f1f28";
-                  background = "#1f1f28";
-                  text = "#7f8490";
+                  border = p.bg0;
+                  background = p.bg0;
+                  text = p.gray;
                 };
                 urgentWorkspace = {
-                  border = "#c34043";
-                  background = "#c34043";
-                  text = "#ffffff";
+                  border = p.red;
+                  background = p.red;
+                  text = p.fg0;
                 };
                 bindingMode = {
-                  border = "#c34043";
-                  background = "#c34043";
-                  text = "#ffffff";
+                  border = p.red;
+                  background = p.red;
+                  text = p.fg0;
                 };
               };
               extraConfig = ''
