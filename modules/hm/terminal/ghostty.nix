@@ -28,11 +28,6 @@ in {
         {
           font-family = "Source Code Pro";
           font-size = 13;
-          background = p.bg0;
-          foreground = p.fg1;
-          cursor-color = p.fg1;
-          selection-background = p.bg3;
-          selection-foreground = p.fg0;
           window-decoration = "server";
           working-directory = "home";
           window-inherit-working-directory = false;
