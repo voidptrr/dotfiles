@@ -15,6 +15,25 @@
           auto_show = true;
           auto_show_delay_ms = 200;
         };
+        completion.menu.draw = {
+          columns = [
+            ["label" "label_description"]
+            ["source_name"]
+          ];
+          components.source_name.text.__raw = ''
+            function(ctx)
+              local source_names = {
+                LSP = "lsp",
+                Buffer = "buffer",
+                Path = "path",
+                Snippets = "snippets",
+              }
+
+              local source = source_names[ctx.source_name] or string.lower(ctx.source_name)
+              return "[" .. source .. "]"
+            end
+          '';
+        };
       };
     };
   };
