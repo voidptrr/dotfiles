@@ -1,5 +1,12 @@
 {...}: {
   programs.nixvim = {
+    diagnostic.settings = {
+      virtual_text = false;
+      underline = false;
+      severity_sort = true;
+      update_in_insert = false;
+    };
+
     plugins.lsp = {
       enable = true;
       servers = {
