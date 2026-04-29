@@ -1,0 +1,9 @@
+set nocompatible
+let mapleader="," 
+
+source ~/.config/vim/netrw.vim
+source ~/.config/vim/options.vim
+source ~/.config/vim/keymaps.vim
+
+filetype plugin indent on
+syntax on

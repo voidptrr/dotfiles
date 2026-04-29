@@ -4,7 +4,6 @@
   ...
 }: let
   i3 = osConfig.nixos.windowManager.i3;
-  p = osConfig.nixos.theme.palette;
 in {
   imports = [
     ./i3status.nix
@@ -16,10 +15,6 @@ in {
         {
           assertion = !i3.usei3Status || i3.enable;
           message = "nixos.windowManager.i3.usei3Status requires nixos.windowManager.i3.enable";
-        }
-        {
-          assertion = !i3.enable || osConfig.nixos.theme.enable;
-          message = "nixos.windowManager.i3.enable requires nixos.theme.enable";
         }
       ];
     }
@@ -53,32 +48,32 @@ in {
 
           colors = {
             focused = {
-              border = p.yellow;
-              background = p.bg0;
-              text = p.yellow;
-              indicator = p.yellow;
-              childBorder = p.yellow;
+              border = "#c4b28a";
+              background = "#000000";
+              text = "#c4b28a";
+              indicator = "#c4b28a";
+              childBorder = "#c4b28a";
             };
             unfocused = {
-              border = p.bg1;
-              background = p.bg0;
-              text = p.gray;
-              indicator = p.bg1;
-              childBorder = p.bg1;
+              border = "#808080";
+              background = "#000000";
+              text = "#808080";
+              indicator = "#808080";
+              childBorder = "#808080";
             };
             focusedInactive = {
-              border = p.bg1;
-              background = p.bg0;
-              text = p.gray;
-              indicator = p.bg1;
-              childBorder = p.bg1;
+              border = "#8a9a7b";
+              background = "#000000";
+              text = "#8a9a7b";
+              indicator = "#8a9a7b";
+              childBorder = "#8a9a7b";
             };
             urgent = {
-              border = p.red;
-              background = p.bg0;
-              text = p.red;
-              indicator = p.red;
-              childBorder = p.red;
+              border = "#c4746e";
+              background = "#000000";
+              text = "#c4746e";
+              indicator = "#c4746e";
+              childBorder = "#c4746e";
             };
           };
           bars = [
@@ -87,37 +82,37 @@ in {
               statusCommand = "i3status";
               trayOutput = "primary";
               fonts = {
-                names = ["Source Code Pro"];
+                names = ["JetBrains Mono"];
                 size = 13.0;
               };
               colors = {
-                background = p.bg0;
-                statusline = p.fg1;
-                separator = p.gray;
+                background = "#000000";
+                statusline = "#8a9a7b";
+                separator = "#808080";
                 focusedWorkspace = {
-                  border = p.bg0;
-                  background = p.bg0;
-                  text = p.fg1;
+                  border = "#c4b28a";
+                  background = "#000000";
+                  text = "#c4b28a";
                 };
                 activeWorkspace = {
-                  border = p.bg1;
-                  background = p.bg1;
-                  text = p.fg1;
+                  border = "#8a9a7b";
+                  background = "#000000";
+                  text = "#8a9a7b";
                 };
                 inactiveWorkspace = {
-                  border = p.bg0;
-                  background = p.bg0;
-                  text = p.gray;
+                  border = "#000000";
+                  background = "#000000";
+                  text = "#808080";
                 };
                 urgentWorkspace = {
-                  border = p.red;
-                  background = p.red;
-                  text = p.fg0;
+                  border = "#c4746e";
+                  background = "#000000";
+                  text = "#c4746e";
                 };
                 bindingMode = {
-                  border = p.red;
-                  background = p.red;
-                  text = p.fg0;
+                  border = "#c4746e";
+                  background = "#000000";
+                  text = "#c4746e";
                 };
               };
               extraConfig = ''
@@ -168,7 +163,7 @@ in {
             "Mod4+Shift+9" = "move container to workspace number 9";
           };
           fonts = {
-            names = ["Source Code Pro"];
+            names = ["JetBrains Mono"];
             size = 13.0;
           };
         };

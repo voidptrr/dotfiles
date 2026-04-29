@@ -11,8 +11,8 @@
         email = "bruno.tommaso@protonmail.com";
       };
 
-      nvim.enable = true;
       opencode.enable = true;
+      vim.enable = true;
     };
   };
 }

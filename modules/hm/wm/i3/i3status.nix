@@ -4,16 +4,8 @@
   ...
 }: let
   i3 = osConfig.nixos.windowManager.i3;
-  p = osConfig.nixos.theme.palette;
 in {
   config = lib.mkIf (i3.enable && i3.usei3Status) {
-    assertions = [
-      {
-        assertion = osConfig.nixos.theme.enable;
-        message = "nixos.windowManager.i3.usei3Status requires nixos.theme.enable";
-      }
-    ];
-
     programs.i3status = {
       enable = true;
       enableDefault = false;
@@ -23,16 +15,16 @@ in {
         markup = "pango";
         colors = true;
         interval = 2;
-        color_good = p.green;
-        color_bad = p.red;
-        color_degraded = p.yellow;
+        color_good = "#8a9a7b";
+        color_bad = "#c4746e";
+        color_degraded = "#c4b28a";
       };
 
       modules = {
         "tztime local" = {
           position = 1;
           settings = {
-            format = "<span color='${p.yellow}'>%Y-%m-%d %H:%M</span>";
+            format = "<span color='#c4b28a'>%Y-%m-%d %H:%M</span>";
           };
         };
 

@@ -2,11 +2,13 @@
   hardware.alsa.enablePersistence = true;
   security.rtkit.enable = true;
 
-  fonts.packages = with pkgs; [source-code-pro];
+  fonts.packages = with pkgs; [source-code-pro jetbrains-mono];
   environment.systemPackages = with pkgs; [
     brightnessctl
     pulseaudio
     alsa-utils
+    xclip
+    wl-clipboard
   ];
 
   services = {

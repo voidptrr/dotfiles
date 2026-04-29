@@ -13,12 +13,11 @@
       shellAliases = {
         ll = "ls -la";
         nd = "nix develop -c \"$SHELL\"";
-        vim = "nvim";
         rebuild = "sudo nixos-rebuild switch --flake ~/git/dotfiles#${hostname}";
       };
 
       sessionVariables = {
-        EDITOR = "nvim";
+        EDITOR = "vim";
         BROWSER = "firefox";
         TERMINAL = "ghostty";
       };

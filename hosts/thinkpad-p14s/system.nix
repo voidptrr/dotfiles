@@ -8,12 +8,6 @@
   nixos = {
     displayServer.xserver.enable = true;
     displayManager.ly.enable = true;
-    theme = {
-      enable = true;
-      name = "kanagawa";
-      variant = "dragon";
-    };
-
     windowManager.i3 = {
       enable = true;
       usei3Status = true;

@@ -1,7 +1,7 @@
 {...}: {
   imports = [
     ./git.nix
-    ./nvim.nix
     ./opencode.nix
+    ./vim.nix
   ];
 }
