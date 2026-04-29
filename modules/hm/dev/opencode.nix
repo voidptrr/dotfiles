@@ -8,7 +8,7 @@
   config = lib.mkIf config.hm.dev.opencode.enable {
     programs.opencode = {
       enable = true;
-      tui.theme = "kanagawa";
+      tui.theme = "system";
     };
   };
 }
