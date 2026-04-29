@@ -1,5 +1,6 @@
 {
   lib,
+  pkgs,
   config,
   ...
 }: {
@@ -41,7 +42,10 @@
     })
 
     (lib.mkIf config.nixos.windowManager.i3.enable {
-      services.xserver.windowManager.i3.enable = true;
+      services.xserver.windowManager.i3 = {
+        enable = true;
+        extraPackages = lib.optionals config.nixos.windowManager.i3.usei3Status [pkgs.i3status];
+      };
     })
 
     (lib.mkIf config.nixos.displayManager.ly.enable {

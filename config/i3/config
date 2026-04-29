@@ -1,0 +1,74 @@
+set $mod Mod4
+font pango:JetBrains Mono 13.5
+
+floating_modifier $mod
+focus_follows_mouse yes
+hide_edge_borders none
+default_border pixel 2
+default_floating_border pixel 2
+
+for_window [title="coding"] floating enable, resize set 1400 900, move position center
+
+client.focused #c4b28a #000000 #c4b28a #c4b28a #c4b28a
+client.unfocused #808080 #000000 #808080 #808080 #808080
+client.focused_inactive #8a9a7b #000000 #8a9a7b #8a9a7b #8a9a7b
+client.urgent #c4746e #000000 #c4746e #c4746e #c4746e
+
+bar {
+  position top
+  status_command i3status
+  tray_output primary
+  font pango:JetBrains Mono 13.5
+  colors {
+    background #000000
+    statusline #8a9a7b
+    separator #808080
+    focused_workspace #000000 #000000 #c4b28a
+    active_workspace #000000 #000000 #8a9a7b
+    inactive_workspace #000000 #000000 #808080
+    urgent_workspace #000000 #000000 #c4746e
+    binding_mode #000000 #000000 #c4746e
+  }
+  separator_symbol "|"
+}
+
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
+
+bindsym $mod+Return exec --no-startup-id ghostty
+bindsym $mod+m exec --no-startup-id rofi -show drun -normal-window
+bindsym $mod+f exec --no-startup-id firefox
+bindsym $mod+c exec --no-startup-id ghostty --title=coding
+bindsym $mod+Shift+q kill
+
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+bindsym $mod+space layout toggle split
+bindsym $mod+Control+r reload
+
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
+bindsym $mod+9 workspace number 9
+
+bindsym $mod+Shift+1 move container to workspace number 1
+bindsym $mod+Shift+2 move container to workspace number 2
+bindsym $mod+Shift+3 move container to workspace number 3
+bindsym $mod+Shift+4 move container to workspace number 4
+bindsym $mod+Shift+5 move container to workspace number 5
+bindsym $mod+Shift+6 move container to workspace number 6
+bindsym $mod+Shift+7 move container to workspace number 7
+bindsym $mod+Shift+8 move container to workspace number 8
+bindsym $mod+Shift+9 move container to workspace number 9

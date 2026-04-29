@@ -19,6 +19,7 @@ set autoindent
 set smartindent
 
 set path+=**
+set wildmenu
 
 set laststatus=2
 set statusline=
