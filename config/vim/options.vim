@@ -1,3 +1,6 @@
+set noswapfile
+set nobackup
+set nowritebackup
 set ignorecase
 set smartcase
 set mouse=a

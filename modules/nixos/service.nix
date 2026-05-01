@@ -38,6 +38,11 @@
         autoRepeatDelay = 200;
         autoRepeatInterval = 35;
         xkb.options = "caps:escape";
+        displayManager.sessionCommands = ''
+          if ${pkgs.xorg.xrandr}/bin/xrandr | grep -q '^eDP-1 connected'; then
+            ${pkgs.xorg.xrandr}/bin/xrandr --output eDP-1 --mode 1920x1200 --scale 1.04x1.00
+          fi
+        '';
       };
     })
 

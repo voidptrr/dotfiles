@@ -7,7 +7,7 @@ hide_edge_borders none
 default_border pixel 2
 default_floating_border pixel 2
 
-for_window [title="coding"] floating enable, resize set 1400 900, move position center
+for_window [title="coding"] floating enable, resize set 1100 800, move position center
 
 client.focused #c4b28a #000000 #c4b28a #c4b28a #c4b28a
 client.unfocused #808080 #000000 #808080 #808080 #808080
@@ -18,7 +18,7 @@ bar {
   position top
   status_command i3status
   tray_output primary
-  font pango:JetBrains Mono 13.5
+  font pango:JetBrains Mono Bold 13.5
   colors {
     background #000000
     statusline #8a9a7b
