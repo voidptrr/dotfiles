@@ -30,6 +30,7 @@ volume master {
 battery all {
   format = "BAT %status %percentage"
   format_down = "BAT %status %percentage"
+  threshold_type = "percentage"
   status_chr = "+"
   status_bat = ""
   status_full = "full"

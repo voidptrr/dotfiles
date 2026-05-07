@@ -9,7 +9,7 @@
     programs.ghostty = {
       enable = true;
       settings = {
-        font-family = "JetBrains Mono Bold";
+        font-family = "JetBrains Mono SemiBold";
         font-size = 13.5;
         theme = "Ghostty Default Style Dark";
         background = "#1f2428";
