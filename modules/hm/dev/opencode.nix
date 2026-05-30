@@ -10,5 +10,7 @@
       enable = true;
       tui.theme = "system";
     };
+
+    programs.codex.enable = true;
   };
 }

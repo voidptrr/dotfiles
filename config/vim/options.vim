@@ -1,3 +1,5 @@
+let g:c_syntax_for_h = 1
+
 set noswapfile
 set nobackup
 set nowritebackup
@@ -23,6 +25,7 @@ set smartindent
 
 set path+=**
 set wildmenu
+set wildignore+=*/build/*,*/.git/*,*/dist/*,*/node_modules/*
 
 set laststatus=2
 set statusline=

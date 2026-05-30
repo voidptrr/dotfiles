@@ -9,6 +9,8 @@
     alsa-utils
     xclip
     wl-clipboard
+    man-pages
+    scc
   ];
 
   services = {
