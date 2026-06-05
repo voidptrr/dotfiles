@@ -29,6 +29,10 @@
                   name = "LC Problems";
                   url = "https://zerotrac.github.io/leetcode_problem_rating";
                 }
+                {
+                  name = "PSN Profile";
+                  url = "https://psnprofiles.com/voidptr__";
+                }
               ];
             }
           ];
