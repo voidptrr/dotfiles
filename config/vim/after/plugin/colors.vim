@@ -1,5 +1,5 @@
 set background=dark
-colorscheme darkblue
+colorscheme blue
 "set t_Co=8
 if exists('+termguicolors')
   set notermguicolors
