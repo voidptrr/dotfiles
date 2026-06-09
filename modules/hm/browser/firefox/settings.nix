@@ -32,6 +32,6 @@
   "browser.urlbar.quicksuggest.enabled" = false;
   "browser.newtabpage.activity-stream.feeds.recommendationprovider" = false;
 
-  "font.name.monospace.x-western" = "Source Code Pro";
-  "font.name-list.monospace.x-western" = "Source Code Pro";
+  "font.name.monospace.x-western" = "Mononoki Nerd Font Mono";
+  "font.name-list.monospace.x-western" = "Mononoki Nerd Font Mono";
 }

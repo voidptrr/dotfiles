@@ -1,5 +1,7 @@
 set nocompatible
 let mapleader="," 
+set runtimepath^=~/.config/vim
+set runtimepath+=~/.config/vim/after
 
 source ~/.config/vim/netrw.vim
 source ~/.config/vim/options.vim

@@ -2,7 +2,10 @@
   hardware.alsa.enablePersistence = true;
   security.rtkit.enable = true;
 
-  fonts.packages = with pkgs; [source-code-pro jetbrains-mono];
+  fonts.packages = with pkgs; [
+    nerd-fonts.mononoki
+    source-code-pro
+  ];
   environment.systemPackages = with pkgs; [
     brightnessctl
     pulseaudio

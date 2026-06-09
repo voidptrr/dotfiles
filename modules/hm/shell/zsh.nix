@@ -31,20 +31,20 @@
 
             local nix_part=""
             if [ -n "''${IN_NIX_SHELL-}" ]; then
-              nix_part="%F{4}(nix)%f"
+              nix_part="%F{yellow}(nix)%f"
             fi
 
             PROMPT="%F{yellow}%~%f"
 
             if [ -n "''${vcs_info_msg_0_-}" ]; then
-              PROMPT+=" %F{242}''${vcs_info_msg_0_-}%f"
+              PROMPT+=" %F{red}''${vcs_info_msg_0_-}%f"
             fi
 
             if [ -n "$nix_part" ]; then
               PROMPT+=" $nix_part"
             fi
 
-          PROMPT+=" %% "
+          PROMPT+=" %F{red}%%%f "
         }
       '';
     };

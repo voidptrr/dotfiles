@@ -1,5 +1,5 @@
 set $mod Mod4
-font pango:JetBrains Mono 13.5
+font pango:Mononoki Nerd Font 13
 
 floating_modifier $mod
 focus_follows_mouse yes
@@ -18,7 +18,7 @@ bar {
   position top
   status_command i3status
   tray_output primary
-  font pango:JetBrains Mono Bold 13.5
+  font pango:Mononoki Nerd Font 13
   colors {
     background #000000
     statusline #8a9a7b
