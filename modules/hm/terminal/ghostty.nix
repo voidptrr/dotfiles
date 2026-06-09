@@ -10,7 +10,7 @@
       enable = true;
       settings = {
         font-family = "Mononoki Nerd Font Mono";
-        font-size = 15;
+        font-size = 14.5;
         background = "#19171d";
         foreground = "#8b8792";
         cursor-color = "#8b8792";
