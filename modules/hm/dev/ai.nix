@@ -12,5 +12,10 @@
     };
 
     programs.codex.enable = true;
+
+    home.file.".agents/skills" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/git/dotfiles/config/agents/skills";
+      recursive = true;
+    };
   };
 }
