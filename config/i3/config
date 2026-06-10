@@ -9,9 +9,9 @@ default_floating_border pixel 2
 
 for_window [title="coding"] floating enable, resize set 1150 900, move position center
 
-client.focused #c4b28a #000000 #c4b28a #c4b28a #c4b28a
-client.unfocused #808080 #000000 #808080 #808080 #808080
-client.focused_inactive #8a9a7b #000000 #8a9a7b #8a9a7b #8a9a7b
+client.focused #8b8792 #000000 #c4b28a #8b8792 #8b8792
+client.unfocused #8b8792 #000000 #808080 #8b8792 #8b8792
+client.focused_inactive #8b8792 #000000 #8a9a7b #8b8792 #8b8792
 client.urgent #c4746e #000000 #c4746e #c4746e #c4746e
 
 bar {
