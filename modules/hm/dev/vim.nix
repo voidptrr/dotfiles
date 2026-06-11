@@ -11,8 +11,10 @@ in {
     inputs.nixvim.homeModules.nixvim
     ./nvim/files.nix
     ./nvim/keymaps.nix
+    ./nvim/lsp.nix
     ./nvim/options.nix
     ./nvim/plugins.nix
+    ./nvim/treesitter.nix
     ./nvim/ui.nix
   ];
 
