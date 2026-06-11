@@ -125,6 +125,9 @@ call <sid>hi("CursorLine",    "", s:gui01, "", s:cterm01, "none", "")
 call <sid>hi("CursorLineNr",  s:gui03, s:gui01, s:cterm03, s:cterm01, "", "")
 call <sid>hi("PMenu",         s:gui04, s:gui01, s:cterm04, s:cterm01, "none", "")
 call <sid>hi("PMenuSel",      s:gui01, s:gui04, s:cterm01, s:cterm04, "", "")
+call <sid>hi("NormalFloat",   s:gui07, s:gui01, s:cterm07, s:cterm01, "", "")
+call <sid>hi("FloatBorder",   s:gui03, s:gui01, s:cterm03, s:cterm01, "", "")
+call <sid>hi("FloatTitle",    s:gui0D, s:gui01, s:cterm0D, s:cterm01, "bold", "")
 call <sid>hi("TabLine",       s:gui03, s:gui01, s:cterm03, s:cterm01, "none", "")
 call <sid>hi("TabLineFill",   s:gui03, s:gui01, s:cterm03, s:cterm01, "none", "")
 call <sid>hi("TabLineSel",    s:gui0B, s:gui01, s:cterm0B, s:cterm01, "none", "")
@@ -283,6 +286,23 @@ call <sid>hi("SpellLocal",   "", s:gui00, "", s:cterm00, "undercurl", s:gui0C)
 call <sid>hi("SpellCap",     "", s:gui00, "", s:cterm00, "undercurl", s:gui0D)
 call <sid>hi("SpellRare",    "", s:gui00, "", s:cterm00, "undercurl", s:gui0E)
 
+" LSP highlighting
+call <sid>hi("LspInfoBorder",               s:gui03, s:gui01, s:cterm03, s:cterm01, "", "")
+call <sid>hi("LspReferenceText",            "", s:gui01, "", s:cterm01, "", "")
+call <sid>hi("LspReferenceRead",            "", s:gui01, "", s:cterm01, "", "")
+call <sid>hi("LspReferenceWrite",           "", s:gui01, "", s:cterm01, "", "")
+call <sid>hi("LspSignatureActiveParameter", s:gui00, s:gui0A, s:cterm00, s:cterm0A, "bold", "")
+call <sid>hi("DiagnosticFloatingError",     s:gui08, s:gui01, s:cterm08, s:cterm01, "", "")
+call <sid>hi("DiagnosticFloatingWarn",      s:gui0A, s:gui01, s:cterm0A, s:cterm01, "", "")
+call <sid>hi("DiagnosticFloatingInfo",      s:gui0C, s:gui01, s:cterm0C, s:cterm01, "", "")
+call <sid>hi("DiagnosticFloatingHint",      s:gui0D, s:gui01, s:cterm0D, s:cterm01, "", "")
+call <sid>hi("DiagnosticFloatingOk",        s:gui0B, s:gui01, s:cterm0B, s:cterm01, "", "")
+call <sid>hi("DiagnosticVirtualTextError",  s:gui08, s:gui00, s:cterm08, s:cterm00, "", "")
+call <sid>hi("DiagnosticVirtualTextWarn",   s:gui0A, s:gui00, s:cterm0A, s:cterm00, "", "")
+call <sid>hi("DiagnosticVirtualTextInfo",   s:gui0C, s:gui00, s:cterm0C, s:cterm00, "", "")
+call <sid>hi("DiagnosticVirtualTextHint",   s:gui0D, s:gui00, s:cterm0D, s:cterm00, "", "")
+call <sid>hi("DiagnosticVirtualTextOk",     s:gui0B, s:gui00, s:cterm0B, s:cterm00, "", "")
+
 " Highlighting para mis plugins
 call <sid>hi("BlinkCmpScrollBarThumb",        s:gui05, s:gui00, s:cterm05, s:cterm00, "", "")
 call <sid>hi("BlinkCmpScrollBarGutter",        s:gui05, s:gui00, s:cterm05, s:cterm00, "", "")
@@ -297,7 +317,6 @@ call <sid>hi("BufferLineTab",        s:gui05, s:gui00, s:cterm05, s:cterm00, "",
 "hi! link BlinkCmpScrollBarGutter Normal
 
 hi FoldColumn guibg=bg guifg=bg
-hi! link NormalFloat Pmenu
 hi! link BufferLineFill BufferLineInfo
 
 hi! link LineNr Normal
