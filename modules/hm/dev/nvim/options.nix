@@ -4,6 +4,11 @@
   ...
 }: let
   cfg = config.hm.dev.vim;
+  twoSpaceIndent = {
+    tabstop = 2;
+    shiftwidth = 2;
+    softtabstop = 2;
+  };
 in {
   config = lib.mkIf cfg.enable {
     programs.nixvim.opts = {
@@ -31,6 +36,12 @@ in {
       laststatus = 2;
       background = "dark";
       termguicolors = true;
+    };
+
+    programs.nixvim.files = {
+      "ftplugin/json.lua".localOpts = twoSpaceIndent;
+      "ftplugin/nix.lua".localOpts = twoSpaceIndent;
+      "ftplugin/typescript.lua".localOpts = twoSpaceIndent;
     };
 
     programs.nixvim.extraConfigVim = ''

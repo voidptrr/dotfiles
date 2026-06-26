@@ -6,6 +6,16 @@
   cfg = config.hm.dev.vim;
 in {
   config = lib.mkIf cfg.enable {
+    programs.nixvim.colorschemes.gruvbox-material = {
+      enable = true;
+      settings = {
+        background = "soft";
+        foreground = "material";
+        transparent_background = 1;
+        better_performance = 1;
+      };
+    };
+
     programs.nixvim.plugins.lualine = {
       enable = true;
       settings = {
@@ -14,6 +24,7 @@ in {
           component_separators = "";
           section_separators = "";
           globalstatus = false;
+          theme = "gruvbox-material";
         };
         sections = {
           lualine_a = ["mode"];
@@ -47,9 +58,5 @@ in {
         ];
       };
     };
-
-    programs.nixvim.extraConfigVim = ''
-      colorscheme smoke
-    '';
   };
 }

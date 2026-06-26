@@ -8,9 +8,6 @@ in {
   config = lib.mkIf cfg.enable {
     programs.nixvim.plugins.lsp = {
       enable = true;
-      preConfig = ''
-        vim.lsp.semantic_tokens.enable(false)
-      '';
       keymaps = {
         silent = true;
         diagnostic = {

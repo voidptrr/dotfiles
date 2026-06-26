@@ -10,6 +10,7 @@ in {
       enable = true;
       highlight.enable = true;
       grammarPackages = with config.programs.nixvim.plugins.treesitter.package.builtGrammars; [
+        nix
         rust
         cpp
         zig

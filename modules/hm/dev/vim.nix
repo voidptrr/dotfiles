@@ -9,7 +9,6 @@
 in {
   imports = [
     inputs.nixvim.homeModules.nixvim
-    ./nvim/files.nix
     ./nvim/keymaps.nix
     ./nvim/lsp.nix
     ./nvim/options.nix
