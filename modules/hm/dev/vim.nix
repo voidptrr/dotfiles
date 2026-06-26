@@ -27,6 +27,8 @@ in {
       viAlias = true;
       vimAlias = true;
 
+      nixpkgs.source = inputs.nixpkgs;
+
       globals = {
         mapleader = ",";
         c_syntax_for_h = 1;
