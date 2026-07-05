@@ -9,10 +9,9 @@
     programs.ghostty = {
       enable = true;
       settings = {
-        font-family = "Mononoki Nerd Font Mono";
-        font-size = 14.5;
-        theme = "Gruvbox Material Dark";
-        background = "#0f1112";
+        font-family = "JetBrains Mono Bold";
+        font-size = 13.5;
+        theme = "Ghostty Default Style Dark";
         window-decoration = "server";
         working-directory = "home";
         window-inherit-working-directory = false;

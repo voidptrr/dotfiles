@@ -1,45 +1,25 @@
 {
-  inputs,
   lib,
   pkgs,
   config,
   ...
 }: let
-  cfg = config.hm.dev.vim;
+  repoPath = "${config.home.homeDirectory}/git/dotfiles";
 in {
-  imports = [
-    inputs.nixvim.homeModules.nixvim
-    ./nvim/keymaps.nix
-    ./nvim/lsp.nix
-    ./nvim/options.nix
-    ./nvim/plugins.nix
-    ./nvim/treesitter.nix
-    ./nvim/ui.nix
-  ];
+  options.hm.dev.vim.enable = lib.mkEnableOption "vim";
 
-  options.hm.dev.vim.enable = lib.mkEnableOption "neovim";
-
-  config = lib.mkIf cfg.enable {
-    programs.nixvim = {
+  config = lib.mkIf config.hm.dev.vim.enable {
+    programs.vim = {
       enable = true;
-      defaultEditor = true;
-      viAlias = true;
-      vimAlias = true;
+      plugins = [pkgs.vimPlugins.vim-fugitive];
+      extraConfig = ''
+        source ~/.config/vim/vimrc
+      '';
+    };
 
-      nixpkgs.source = inputs.nixpkgs;
-
-      globals = {
-        mapleader = ",";
-        c_syntax_for_h = 1;
-
-        netrw_dirhistmax = 0;
-        netrw_banner = 1;
-        netrw_liststyle = 0;
-        netrw_browse_split = 0;
-        netrw_winsize = 25;
-        netrw_altv = 1;
-        netrw_localcopydircmd = "cp -r";
-      };
+    xdg.configFile."vim" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${repoPath}/config/vim";
+      recursive = true;
     };
   };
 }
