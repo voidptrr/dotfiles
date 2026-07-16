@@ -19,10 +19,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
-      - uses: DeterminateSystems/flake-checker-action@a0f068d37b542f3150564fbf1164fec2d958ee11 # main
+      - uses: DeterminateSystems/flake-checker-action@de924abd783455e8429c858962b9e43062d19da1 # main
         with:
           fail-mode: true
-      - uses: DeterminateSystems/determinate-nix-action@629b284231c2a82554b724e357e47fc6020833c8 # v3
-      - uses: DeterminateSystems/magic-nix-cache-action@76aaf8814cdb385b86597c32b8c51b66b69b0839 # main
+      - uses: DeterminateSystems/determinate-nix-action@c70cb8ae92d68c66953db28a26a63db1665bc837 # v3
+      - uses: DeterminateSystems/magic-nix-cache-action@55718cd9ebf1737a061487d5ada21abf31e99a98 # main
       - name: Run nix flake check
         run: nix flake check
