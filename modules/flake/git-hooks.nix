@@ -3,9 +3,9 @@
     inputs.git-hooks.flakeModule
   ];
 
-  perSystem = _: {
-    pre-commit.settings.hooks = {
-      check.enable = true;
+  perSystem.pre-commit = {
+    check.enable = true;
+    settings.hooks = {
       alejandra.enable = true;
     };
   };
