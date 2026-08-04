@@ -8,7 +8,7 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     nvim-config = {
-      url = "git+ssh://git@github.com/voidptrr/nvim-config.git";
+      url = "github:voidptrr/nvim-config";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

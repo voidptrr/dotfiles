@@ -168,15 +168,15 @@
       "locked": {
         "lastModified": 1785870003,
         "narHash": "sha256-3370WhUc/s19HYPy2ViYueQiPxSj3/DBC/0fqY9jxsQ=",
-        "ref": "refs/heads/main",
+        "owner": "voidptrr",
+        "repo": "nvim-config",
         "rev": "28eb8592caa8b408e5002f13bf34b09fddc8cae3",
-        "revCount": 2,
-        "type": "git",
-        "url": "ssh://git@github.com/voidptrr/nvim-config.git"
+        "type": "github"
       },
       "original": {
-        "type": "git",
-        "url": "ssh://git@github.com/voidptrr/nvim-config.git"
+        "owner": "voidptrr",
+        "repo": "nvim-config",
+        "type": "github"
       }
     },
     "root": {
