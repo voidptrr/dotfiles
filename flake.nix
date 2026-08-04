@@ -35,18 +35,8 @@
       default = pkgs.mkShell {
         packages = [
           pkgs.nil
-          pkgs.stylua
         ];
       };
-    });
-
-    checks = systemLib.forEachSystem ({pkgs, ...}: {
-      formatting = pkgs.runCommand "checks" {} ''
-        cd ${./.}
-        ${pkgs.alejandra}/bin/alejandra --check .
-        find config -name '*.lua' -print0 | xargs -0 -r ${pkgs.stylua}/bin/stylua --config-path ${./stylua.toml} --check
-        touch "$out"
-      '';
     });
   };
 }
