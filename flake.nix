@@ -4,6 +4,13 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
+    flake-parts = {
+      url = "github:hercules-ci/flake-parts";
+      inputs.nixpkgs-lib.follows = "nixpkgs";
+    };
+
+    systems.url = "github:nix-systems/x86_64-linux";
+
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -16,27 +23,11 @@
     firefox-addons.url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
   };
 
-  outputs = inputs: let
-    systemLib = import ./lib/system.nix {inherit inputs;};
-  in {
-    inherit
-      (systemLib.mkLinuxSystem {
-        hostname = "jett";
-        username = "voidptr";
-        hostDirectory = "thinkpad-p14s";
-        system = systemLib.systemMap.linux;
-      })
-      nixosConfigurations
-      ;
-
-    formatter = systemLib.forEachSystem ({pkgs, ...}: pkgs.alejandra);
-
-    devShells = systemLib.forEachSystem ({pkgs, ...}: {
-      default = pkgs.mkShell {
-        packages = [
-          pkgs.nil
-        ];
-      };
-    });
-  };
+  outputs = inputs @ {flake-parts, ...}:
+    flake-parts.lib.mkFlake {inherit inputs;} {
+      systems = import inputs.systems;
+      imports = [
+        ./modules/flake
+      ];
+    };
 }
