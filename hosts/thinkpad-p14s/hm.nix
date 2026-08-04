@@ -1,7 +1,10 @@
 {...}: {
   hm = {
     shell.zsh.enable = true;
-    terminal.ghostty.enable = true;
+    terminal = {
+      alacritty.enable = true;
+      tmux.enable = true;
+    };
     browser.firefox.enable = true;
 
     dev = {
@@ -12,7 +15,7 @@
       };
 
       opencode.enable = true;
-      vim.enable = true;
+      nvim.enable = true;
     };
   };
 }

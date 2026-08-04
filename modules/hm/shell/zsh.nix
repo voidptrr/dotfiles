@@ -2,24 +2,31 @@
   hostname,
   lib,
   config,
+  pkgs,
   ...
 }: {
   options.hm.shell.zsh.enable = lib.mkEnableOption "zsh";
 
   config = lib.mkIf config.hm.shell.zsh.enable {
+    home.packages = [
+      pkgs.stylua
+    ];
+
     programs.zsh = {
       enable = true;
 
       shellAliases = {
+        vi = "nvim";
+        vim = "nvim";
         ll = "ls -la";
         nd = "nix develop -c \"$SHELL\"";
         rebuild = "sudo nixos-rebuild switch --flake ~/git/dotfiles#${hostname}";
       };
 
       sessionVariables = {
-        EDITOR = "vim";
+        EDITOR = "nvim";
         BROWSER = "firefox";
-        TERMINAL = "ghostty";
+        TERMINAL = "alacritty";
       };
 
       initContent = ''

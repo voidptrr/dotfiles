@@ -7,6 +7,11 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
+    nvim-config = {
+      url = "github:voidptrr/nvim-config";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     firefox-addons.url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
   };
@@ -28,16 +33,10 @@
 
     devShells = systemLib.forEachSystem ({pkgs, ...}: {
       default = pkgs.mkShell {
-        packages = with pkgs; [nil];
+        packages = [
+          pkgs.nil
+        ];
       };
-    });
-
-    checks = systemLib.forEachSystem ({pkgs, ...}: {
-      formatting = pkgs.runCommand "checks" {} ''
-        cd ${./.}
-        ${pkgs.alejandra}/bin/alejandra --check .
-        touch "$out"
-      '';
     });
   };
 }

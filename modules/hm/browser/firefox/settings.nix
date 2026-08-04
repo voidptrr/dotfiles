@@ -31,7 +31,11 @@
   "browser.urlbar.groupLabels.enabled" = false;
   "browser.urlbar.quicksuggest.enabled" = false;
   "browser.newtabpage.activity-stream.feeds.recommendationprovider" = false;
+  "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
 
-  "font.name.monospace.x-western" = "Mononoki Nerd Font Mono";
-  "font.name-list.monospace.x-western" = "Mononoki Nerd Font Mono";
+  "font.name.sans-serif.x-western" = "Public Sans";
+  "font.name-list.sans-serif.x-western" = "Public Sans";
+  "font.name.monospace.x-western" = "Noto Sans Mono";
+  "font.name-list.monospace.x-western" = "Noto Sans Mono";
+  "font.size.monospace.x-western" = 13;
 }

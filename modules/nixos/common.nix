@@ -4,8 +4,15 @@
 
   fonts.packages = with pkgs; [
     nerd-fonts.mononoki
+    liberation_ttf
+    noto-fonts
+    public-sans
     source-code-pro
   ];
+  fonts.fontconfig.defaultFonts = {
+    monospace = ["Noto Sans Mono"];
+    sansSerif = ["Public Sans"];
+  };
   environment.systemPackages = with pkgs; [
     brightnessctl
     pulseaudio
