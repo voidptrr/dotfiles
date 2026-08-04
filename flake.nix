@@ -7,6 +7,11 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
+    nvim-config = {
+      url = "git+ssh://git@github.com/voidptrr/nvim-config.git";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     firefox-addons.url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
   };
@@ -28,7 +33,10 @@
 
     devShells = systemLib.forEachSystem ({pkgs, ...}: {
       default = pkgs.mkShell {
-        packages = with pkgs; [nil];
+        packages = [
+          pkgs.nil
+          pkgs.stylua
+        ];
       };
     });
 
@@ -36,6 +44,7 @@
       formatting = pkgs.runCommand "checks" {} ''
         cd ${./.}
         ${pkgs.alejandra}/bin/alejandra --check .
+        find config -name '*.lua' -print0 | xargs -0 -r ${pkgs.stylua}/bin/stylua --config-path ${./stylua.toml} --check
         touch "$out"
       '';
     });

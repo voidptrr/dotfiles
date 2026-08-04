@@ -1,3 +1,6 @@
 {...}: {
-  imports = [./ghostty.nix];
+  imports = [
+    ./alacritty.nix
+    ./tmux.nix
+  ];
 }
