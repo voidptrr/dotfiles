@@ -11,7 +11,7 @@
     if lib.hasSuffix ".nix" name
     then lib.removeSuffix ".nix" name
     else name;
-in {
+in rec {
   scanPaths = path:
     map (name: path + "/${name}") (
       builtins.attrNames (
@@ -27,4 +27,10 @@ in {
       value = path + "/${name}";
     })
     entries;
+
+  importAndMarge = path: args: let
+    files = builtins.attrNames (lib.filterAttrs isImportable (builtins.readDir path));
+    imported = map (name: import (path + "/${name}") args) files;
+  in
+    lib.foldl' lib.recursiveUpdate {} imported;
 }

@@ -11,6 +11,20 @@
 
     systems.url = "github:nix-systems/x86_64-linux";
 
+    actions-nix = {
+      url = "github:nialov/actions.nix";
+      inputs = {
+        flake-parts.follows = "flake-parts";
+        git-hooks.follows = "git-hooks";
+        nixpkgs.follows = "nixpkgs";
+      };
+    };
+
+    git-hooks = {
+      url = "github:cachix/git-hooks.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 

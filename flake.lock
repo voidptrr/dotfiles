@@ -1,5 +1,31 @@
 {
   "nodes": {
+    "actions-nix": {
+      "inputs": {
+        "flake-parts": [
+          "flake-parts"
+        ],
+        "git-hooks": [
+          "git-hooks"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1782299217,
+        "narHash": "sha256-TqhsEw7SheE8QPpRUiCPA4UpL6qCgRstxkR6dIFD0zs=",
+        "owner": "nialov",
+        "repo": "actions.nix",
+        "rev": "25d2104c420cceacbf5b3935e2dd1dbfabe01d8c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nialov",
+        "repo": "actions.nix",
+        "type": "github"
+      }
+    },
     "firefox-addons": {
       "inputs": {
         "nixpkgs": "nixpkgs"
@@ -18,6 +44,22 @@
         "owner": "rycee",
         "repo": "nur-expressions",
         "type": "gitlab"
+      }
+    },
+    "flake-compat": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1767039857,
+        "narHash": "sha256-vNpUSpF5Nuw8xvDLj2KCwwksIbjua2LZCqhV1LNRDns=",
+        "owner": "NixOS",
+        "repo": "flake-compat",
+        "rev": "5edf11c44bc78a0d334f6334cdaf7d60d732daab",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "repo": "flake-compat",
+        "type": "github"
       }
     },
     "flake-parts": {
@@ -58,6 +100,27 @@
       "original": {
         "owner": "hercules-ci",
         "repo": "flake-parts",
+        "type": "github"
+      }
+    },
+    "git-hooks": {
+      "inputs": {
+        "flake-compat": "flake-compat",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1784288435,
+        "narHash": "sha256-ReRHaLgr/uVqdD8afFSn+myXIfpHeOhP0yYe0TJqAA8=",
+        "owner": "cachix",
+        "repo": "git-hooks.nix",
+        "rev": "43b3c1ab9d40fb1dbb008f451988a91e375825e9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "cachix",
+        "repo": "git-hooks.nix",
         "type": "github"
       }
     },
@@ -186,11 +249,11 @@
         "systems": "systems"
       },
       "locked": {
-        "lastModified": 1785870003,
-        "narHash": "sha256-3370WhUc/s19HYPy2ViYueQiPxSj3/DBC/0fqY9jxsQ=",
+        "lastModified": 1785881988,
+        "narHash": "sha256-tJ/cUA+d2FapfdD/e+NUe70QWmgBRencqESOKAXtMMc=",
         "owner": "voidptrr",
         "repo": "nvim-config",
-        "rev": "28eb8592caa8b408e5002f13bf34b09fddc8cae3",
+        "rev": "a1f9a478fcbefb5204a97a1163fde75277d8158a",
         "type": "github"
       },
       "original": {
@@ -201,8 +264,10 @@
     },
     "root": {
       "inputs": {
+        "actions-nix": "actions-nix",
         "firefox-addons": "firefox-addons",
         "flake-parts": "flake-parts",
+        "git-hooks": "git-hooks",
         "home-manager": "home-manager",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_3",
