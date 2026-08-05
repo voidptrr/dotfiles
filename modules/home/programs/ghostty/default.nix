@@ -13,6 +13,9 @@
         command = "${pkgs.zsh}/bin/zsh -l";
         font-family = "JetBrains Mono";
         font-size = 13.5;
+        window-decoration = "server";
+        title = "Ghostty";
+        auto-update = "off";
       };
     };
   };
