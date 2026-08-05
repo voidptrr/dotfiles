@@ -4,6 +4,7 @@
     ./hardware-configuration.nix
     ./base.nix
     ./home.nix
+    ./secrets.nix
   ];
 
   my.nixos = {

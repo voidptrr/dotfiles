@@ -12,6 +12,7 @@
 
     fonts.packages = with pkgs; [
       nerd-fonts.mononoki
+      jetbrains-mono
       liberation_ttf
       noto-fonts
       public-sans

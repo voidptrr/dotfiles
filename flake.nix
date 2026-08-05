@@ -28,6 +28,38 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
+    flake-utils = {
+      url = "github:numtide/flake-utils";
+      inputs.systems.follows = "systems";
+    };
+
+    agenix = {
+      url = "github:ryantm/agenix";
+      inputs = {
+        home-manager.follows = "home-manager";
+        nixpkgs.follows = "nixpkgs";
+        systems.follows = "systems";
+      };
+    };
+
+    crane.url = "github:ipetkov/crane";
+
+    rust-overlay = {
+      url = "github:oxalica/rust-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    ragenix = {
+      url = "github:yaxitech/ragenix";
+      inputs = {
+        agenix.follows = "agenix";
+        crane.follows = "crane";
+        flake-utils.follows = "flake-utils";
+        nixpkgs.follows = "nixpkgs";
+        rust-overlay.follows = "rust-overlay";
+      };
+    };
+
     nvim-config = {
       url = "github:voidptrr/nvim-config";
       inputs.nixpkgs.follows = "nixpkgs";

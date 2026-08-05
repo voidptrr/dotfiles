@@ -1,4 +1,8 @@
-{self, ...}: {
+{
+  config,
+  self,
+  ...
+}: {
   home-manager.users.voidptr = {
     imports = builtins.attrValues self.homeModules;
 
@@ -14,13 +18,15 @@
       desktop.i3.enable = true;
 
       programs = {
-        alacritty.enable = true;
         firefox.enable = true;
         git = {
           enable = true;
           name = "voidptrr";
           email = "bruno.tommaso@protonmail.com";
+          authenticationKeyPath = config.age.secrets.githubSshKey.path;
+          signingKeyPath = config.age.secrets.gitSigningKey.path;
         };
+        ghostty.enable = true;
         neovim.enable = true;
         opencode.enable = true;
         zsh.enable = true;
