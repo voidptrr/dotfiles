@@ -12,7 +12,7 @@
       settings = {
         command = "${pkgs.zsh}/bin/zsh -l";
         font-family = "JetBrains Mono";
-        font-size = 7.5;
+        font-size = 13.5;
       };
     };
   };
