@@ -12,8 +12,8 @@ in {
     ];
 
     secrets = {
-      githubSshKey = userSecret ../../secrets/age/github-ssh-key.age;
-      gitSigningKey = userSecret ../../secrets/age/git-signing-key.age;
+      githubSshKey = userSecret ../../secrets/github-ssh-key.age;
+      gitSigningKey = userSecret ../../secrets/git-signing-key.age;
     };
   };
 }
