@@ -1,6 +1,7 @@
 {...}: {
   perSystem = {
     config,
+    inputs',
     pkgs,
     ...
   }: {
@@ -9,6 +10,7 @@
 
       packages = [
         pkgs.nil
+        inputs'.ragenix.packages.default
       ];
     };
   };

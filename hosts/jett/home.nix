@@ -1,4 +1,8 @@
-{self, ...}: {
+{
+  config,
+  self,
+  ...
+}: {
   home-manager.users.voidptr = {
     imports = builtins.attrValues self.homeModules;
 
@@ -20,6 +24,8 @@
           enable = true;
           name = "voidptrr";
           email = "bruno.tommaso@protonmail.com";
+          githubSshKeyPath = config.age.secrets.githubSshKey.path;
+          signingKeyPath = config.age.secrets.gitSigningKey.path;
         };
         neovim.enable = true;
         opencode.enable = true;
