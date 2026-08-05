@@ -60,6 +60,7 @@ in {
     };
 
     programs.ssh = {
+      enable = cfg.authenticationKeyPath != null;
       settings."github.com" = lib.mkIf (cfg.authenticationKeyPath != null) {
         HostName = "github.com";
         User = "git";
