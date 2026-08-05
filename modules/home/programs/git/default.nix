@@ -16,7 +16,7 @@ in {
       type = with lib.types; nonEmptyStr;
     };
 
-    githubSshKeyPath = lib.mkOption {
+    authenticationKeyPath = lib.mkOption {
       type = with lib.types; nullOr nonEmptyStr;
       default = null;
       description = "Path to the SSH private key used for github.com.";
@@ -59,13 +59,11 @@ in {
       };
     };
 
-    programs.ssh = lib.mkIf (cfg.githubSshKeyPath != null) {
-      enable = true;
-      enableDefaultConfig = false;
-      settings."github.com" = {
+    programs.ssh = {
+      settings."github.com" = lib.mkIf (cfg.authenticationKeyPath != null) {
         HostName = "github.com";
         User = "git";
-        IdentityFile = cfg.githubSshKeyPath;
+        IdentityFile = cfg.authenticationKeyPath;
         IdentitiesOnly = true;
       };
     };

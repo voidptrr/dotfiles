@@ -9,5 +9,8 @@
       ) (builtins.readDir ./.)
     ));
 
-  flake = {};
+  flake = {
+    root = ../..;
+    secretsDir = ../../secrets;
+  };
 }

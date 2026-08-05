@@ -1,4 +1,8 @@
-{config, ...}: let
+{
+  config,
+  self,
+  ...
+}: let
   userSecret = file: {
     inherit file;
     owner = "voidptr";
@@ -12,8 +16,8 @@ in {
     ];
 
     secrets = {
-      githubSshKey = userSecret ../../secrets/github-ssh-key.age;
-      gitSigningKey = userSecret ../../secrets/git-signing-key.age;
+      githubSshKey = userSecret (self.secretsDir + /github-ssh-key.age);
+      gitSigningKey = userSecret (self.secretsDir + /git-signing-key.age);
     };
   };
 }
