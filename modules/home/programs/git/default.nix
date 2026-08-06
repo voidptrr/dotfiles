@@ -16,12 +16,6 @@ in {
       type = with lib.types; nonEmptyStr;
     };
 
-    authenticationKeyPath = lib.mkOption {
-      type = with lib.types; nullOr nonEmptyStr;
-      default = null;
-      description = "Path to the SSH private key used for github.com.";
-    };
-
     signingKeyPath = lib.mkOption {
       type = with lib.types; nullOr nonEmptyStr;
       default = null;
@@ -56,16 +50,6 @@ in {
         init.defaultBranch = "main";
         pull.rebase = true;
         push.autoSetupRemote = true;
-      };
-    };
-
-    programs.ssh = {
-      enable = cfg.authenticationKeyPath != null;
-      settings."github.com" = lib.mkIf (cfg.authenticationKeyPath != null) {
-        HostName = "github.com";
-        User = "git";
-        IdentityFile = cfg.authenticationKeyPath;
-        IdentitiesOnly = true;
       };
     };
   };

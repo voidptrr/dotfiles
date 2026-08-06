@@ -23,12 +23,12 @@
           enable = true;
           name = "voidptrr";
           email = "bruno.tommaso@protonmail.com";
-          authenticationKeyPath = config.age.secrets.githubSshKey.path;
           signingKeyPath = config.age.secrets.gitSigningKey.path;
         };
         ghostty.enable = true;
         neovim.enable = true;
         opencode.enable = true;
+        ssh.authenticationKeyPath = config.age.secrets.githubSshKey.path;
         zsh.enable = true;
       };
     };
