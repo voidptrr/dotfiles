@@ -12,9 +12,9 @@
       settings = {
         command = "${pkgs.zsh}/bin/zsh -l";
         font-family = "JetBrains Mono";
+        theme = "Black Metal (Gorgoroth)";
         font-size = 13.5;
         window-decoration = "server";
-        title = "Ghostty";
         auto-update = "off";
       };
     };
