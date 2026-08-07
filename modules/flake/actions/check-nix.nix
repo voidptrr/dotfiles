@@ -7,7 +7,7 @@ _: {
       push = {
         branches = ["main"];
         paths = [
-          "**.nix"
+          "**/*.nix"
           "flake.lock"
           ".github/workflows/checks.yml"
         ];
