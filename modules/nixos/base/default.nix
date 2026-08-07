@@ -11,16 +11,11 @@
     security.rtkit.enable = true;
 
     fonts.packages = with pkgs; [
-      nerd-fonts.mononoki
       jetbrains-mono
-      liberation_ttf
-      noto-fonts
-      public-sans
-      source-code-pro
     ];
     fonts.fontconfig.defaultFonts = {
-      monospace = ["Noto Sans Mono"];
-      sansSerif = ["Public Sans"];
+      monospace = ["JetBrains Mono"];
+      sansSerif = ["JetBrains Mono"];
     };
     environment.systemPackages = with pkgs; [
       brightnessctl

@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  pkgs,
   ...
 }: {
   options.my.nixos.desktop.i3 = {
@@ -25,10 +24,7 @@
     }
 
     (lib.mkIf config.my.nixos.desktop.i3.enable {
-      services.xserver.windowManager.i3 = {
-        enable = true;
-        extraPackages = lib.optionals config.my.nixos.desktop.i3.usei3Status [pkgs.i3status];
-      };
+      services.xserver.windowManager.i3.enable = true;
     })
   ];
 }

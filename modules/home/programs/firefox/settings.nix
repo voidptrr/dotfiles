@@ -33,9 +33,9 @@
   "browser.newtabpage.activity-stream.feeds.recommendationprovider" = false;
   "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
 
-  "font.name.sans-serif.x-western" = "Public Sans";
-  "font.name-list.sans-serif.x-western" = "Public Sans";
-  "font.name.monospace.x-western" = "Noto Sans Mono";
-  "font.name-list.monospace.x-western" = "Noto Sans Mono";
+  "font.name.sans-serif.x-western" = "JetBrains Mono";
+  "font.name-list.sans-serif.x-western" = "JetBrains Mono";
+  "font.name.monospace.x-western" = "JetBrains Mono";
+  "font.name-list.monospace.x-western" = "JetBrains Mono";
   "font.size.monospace.x-western" = 13;
 }
