@@ -20,6 +20,7 @@ _: {
       steps = [
         {uses = "actions/checkout@v7";}
         {uses = "DeterminateSystems/nix-installer-action@main";}
+        {uses = "DeterminateSystems/magic-nix-cache-action@main";}
         {
           name = "Run nix flake check";
           run = "nix flake check";
